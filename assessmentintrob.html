@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NFT Toli Wekka | T|Check Assessment</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --primary: #2ecc71;
+                --primary-light: #3ae074;
+                --primary-dark: #1e8e4e;
+                --secondary: #a3e4d7;
+                --secondary-light: #b9f6e3;
+                --secondary-dark: #7acfa6;
+                --bg: #edf8f6;
+                --card-bg: #f8fdfa;
+                --text-color: #145a32;
+                --accent-1: #b8e6d4;
+                --accent-2: #cceee3;
+                --accent-3: #dfeff0;
+                --hover-bg: #d4f0e4;
+                --hover-text: #0e3d24;
+                --section-bg: #ffffff;
+                --section-border: #ddd;
+                --mini-card-bg: #f0f9f0;
+                --mini-card-border: #cce6cc;
+                --mini-card-hover: #d1e7d1;
+                --button-bg: #2ecc71;
+                --button-hover-bg: #28a745;
+                --gradient: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+                --glass: rgba(255, 255, 255, 0.3);
+                --text-dark: var(--text-color);
+                --text-light: #fff;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                --accent: var(--primary);
+            }
+
+            [data-theme="dark"] {
+                --primary: #ff5252;
+                --secondary: #00c896;
+                --bg: #1a1a1a;
+                --card-bg: #2a2a2a;
+                --text-color: #eee;
+            }
+
+            body {
+                font-family: "Poppins", sans-serif;
+                background-color: var(--bg);
+                color: var(--text-color);
+                transition: background 0.3s, color 0.3s;
+            }
+
+            .container {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            .hero-section {
+                background-color: var(--secondary);
+                padding: 40px 20px;
+                border-radius: 16px;
+                margin-bottom: 40px;
+                text-align: center;
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-description-dynamic {
+                font-size: 1.5rem;
+                font-weight: 500;
+                transition: opacity 0.5s ease-in-out;
+                min-height: 60px;
+            }
+
+            .pane {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            .pane > .card {
+                background: var(--card-bg);
+                border-radius: 16px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                flex: 1 1 400px;
+                min-width: 350px;
+                transition: all 0.4s ease;
+            }
+
+            .card:hover {
+                transform: scale(1.02);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .card-icon {
+                font-size: 3rem;
+                color: var(--primary);
+                margin-bottom: 15px;
+            }
+
+            .card h3 {
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .theme-switcher {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+            }
+
+            .theme-switcher select {
+                padding: 5px 10px;
+                border-radius: 8px;
+            }
+
+            .card-button[data-disabled="true"] {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+                user-select: none;
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page-wrapper {
+                flex: 1;
+            }
+
+            .sticky-footer {
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                text-align: center;
+                padding: 1rem 0;
+                font-size: 0.9rem;
+                backdrop-filter: blur(10px);
+                width: 100%;
+            }
+
+            .sticky-footer a {
+                color: #ffd3a5;
+                text-decoration: none;
+                margin: 0 0.5rem;
+            }
+
+            .sticky-footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main content area -->
+        <div class="page-wrapper">
+            <div class="theme-switcher">
+            <select id="themeSelect" class="form-select">
+                <option value="default" selected>TMR Fresh</option>
+                <option value="fieryRed">🔥 Fiery Red</option>
+                <option value="blushRose">🌸 Blush Rose</option>
+                <option value="midnightDark">🌚 Midnight Dark</option>
+                <option value="sereneLavender">💜 Serene Lavender</option>
+                <option value="oceanBreeze">🌊 Ocean Breeze</option>
+                <option value="goldenSunset">🌅 Golden Sunset</option>
+                <option value="softStone">🪶 Soft Stone</option>
+                <option value="softBlush">💖 Soft Blush</option>
+            </select>
+        </div>
+            </div>
+
+            <div id="introPage" class="container">
+                <h1 class="text-center mb-4" style="color: var(--primary); font-weight: 700;">Welcome to T|Check Self-Guided Assessments</h1>
+
+                <div class="hero-section">
+                    <p id="hero-description-dynamic" class="hero-description-dynamic">Welcome to T|Check — your personalized well-being checkpoint.</p>
+                </div>
+
+                <div class="pane">
+                    <!-- Part A Card -->
+                    <div id="partA-card" class="card text-center card-button disabled-card" role="button" tabindex="0" aria-pressed="false" onclick="openAssessment('checkpointsparta.html')">
+                        <div class="card-icon" style="font-size: 2.2rem; color: var(--primary);">
+                            <i class="bi bi-journal-check"></i>
+                        </div>
+                        <h3 class="card-title">Part A: Let’s Check In</h3>
+                        <p class="card-text">
+                            Begin your wellness checkpoint with a 14-item reflection focused on emotional balance and well-being.<br />
+                            Just 3–5 minutes to pause and explore how you’ve been feeling.
+                        </p>
+                    </div>
+
+                    <!-- Part B Card (initially disabled) -->
+                    <div id="partB-card" class="card text-center card-button" role="button" tabindex="0" aria-pressed="false" onclick="openAssessment('checkpointspartb.html')">
+                        <div class="card-icon" style="font-size: 2.2rem; color: var(--primary-dark);">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3 class="card-title">Part B: Life in Focus</h3>
+                        <p class="card-text">
+                            Dive deeper with 24 thoughtful prompts exploring purpose, relationships, resilience, and fulfillment.<br />
+                            Take 7–10 minutes to reflect on what truly matters.
+                        </p>
+                    </div>
+
+                    <style>
+                        .card-button {
+                            cursor: pointer;
+                            transition: transform 0.2s, box-shadow 0.2s;
+                            outline: none;
+                        }
+
+                        .card-button:hover,
+                        .card-button:focus {
+                            transform: scale(1.02);
+                            box-shadow: 0 0 0 3px var(--primary-light);
+                        }
+
+                        .card-button:active {
+                            transform: scale(0.98);
+                        }
+
+                        .disabled-card {
+                            opacity: 0.5;
+                            pointer-events: none;
+                            filter: grayscale(50%);
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+        <!-- FULLSCREEN IFRAME -->
+        <div id="iframeContainer" class="fullscreen-iframe">
+            <iframe id="assessmentIframe" src="checkpointspartb.html" allowfullscreen></iframe>
+        </div>
+
+        <footer class="sticky-footer">
+            <p>
+                &copy; NFT Consult | Powered by Toli Wekka. All rights reserved. |
+                <a href="#">Privacy</a>
+                |
+                <a href="#">Terms</a>
+            </p>
+        </footer>
+
+        <!-- STYLES -->
+        <style>
+            .hero-description {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fff;
+                background-color: var(--primary-dark, #5a0c0c);
+                padding: 1.2rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+                max-width: 100vw;
+                margin: 2rem auto;
+                text-align: center;
+                line-height: 1.6;
+                letter-spacing: 0.4px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .fullscreen-iframe {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                background: var(--bg, #f5fdf7);
+                z-index: 9999;
+            }
+
+            .fullscreen-iframe iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                background: var(--primary, #930d0e);
+                color: #fff;
+                border: none;
+                padding: 10px 18px;
+                font-size: 1rem;
+                border-radius: 8px;
+                cursor: pointer;
+                z-index: 10000;
+            }
+        </style>
+
+        <!-- SCRIPT -->
+
+        <script>
+            function openAssessment(page) {
+                const iframeContainer = document.getElementById("iframeContainer");
+                const iframe = document.getElementById("assessmentIframe");
+
+                iframe.src = page;
+                iframeContainer.style.display = "block";
+
+                // Optional: hide registration or previous section
+                const introPageSection = document.getElementById("introPage");
+                if (introPageSection) introPageSection.style.display = "none";
+            }
+
+            function closeAssessment() {
+                document.getElementById("iframeContainer").style.display = "none";
+                const introPageSection = document.getElementById("introPage");
+                if (introPageSection) introPageSection.style.display = "none";
+            }
+        </script>
+
+        <script>
+            const themes = {
+                default: {
+        "--primary": "#003366",
+        "--primary-light": "#00509e",
+        "--primary-dark": "#001f4d",
+        "--secondary": "#5ac8fa",
+        "--secondary-light": "#a3e4f7",
+        "--secondary-dark": "#0077b6",
+        "--bg": "#f4f6f8",
+        "--card-bg": "#ffffff",
+        "--text-color": "#ffffff",
+        "--accent-1": "#00bfff",
+        "--accent-2": "#e0f7fa",
+        "--accent-3": "#dde2e8",
+        "--hover-bg": "#001f4d",
+        "--hover-text": "#ffffff",
+        "--section-bg": "#ffffff",
+        "--section-border": "#ccc",
+        "--mini-card-bg": "#e6f0fa",
+        "--mini-card-border": "#b0c4de",
+        "--mini-card-hover": "#cce6ff",
+        "--button-bg": "#003366",
+        "--button-hover-bg": "#00509e"
+                },
+
+                fieryRed: {
+                    "--primary": "#930d0e",
+                    "--primary-light": "#c22c2c",
+                    "--primary-dark": "#7b0a0b",
+                    "--secondary": "#2a7a4e",
+                    "--secondary-light": "#66b59b",
+                    "--secondary-dark": "#1e5c3f",
+                    "--bg": "#f5fdf7",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#333",
+                    "--accent-1": "#f9d5d4",
+                    "--accent-2": "#e4b0b1",
+                    "--accent-3": "#f1c0c1",
+                    "--hover-bg": "#d46a6a",
+                    "--button-bg": "#930d0e",
+                    "--button-hover-bg": "#b35c5c",
+                },
+                blushRose: {
+                    "--primary": "#e84393",
+                    "--primary-light": "#f56eb5",
+                    "--primary-dark": "#b93372",
+                    "--secondary": "#fab1a0",
+                    "--secondary-light": "#ffcfb8",
+                    "--secondary-dark": "#f28f75",
+                    "--bg": "#fceff9",
+                    "--card-bg": "#fff",
+                    "--text-color": "#6c2c5b",
+                    "--accent-1": "#ffe2e6",
+                    "--accent-2": "#ffccd7",
+                    "--accent-3": "#ffd0d8",
+                    "--hover-bg": "#f3a8b7",
+                    "--button-bg": "#e84393",
+                    "--button-hover-bg": "#ec5987",
+                },
+                midnightDark: {
+                    "--primary": "#ff5252",
+                    "--primary-light": "#ff7f7f",
+                    "--primary-dark": "#e10000",
+                    "--secondary": "#00c896",
+                    "--secondary-light": "#33e0b3",
+                    "--secondary-dark": "#009c75",
+                    "--bg": "#1a1a1a",
+                    "--card-bg": "#2a2a2a",
+                    "--text-color": "#eee",
+                    "--accent-1": "#ff2d2d",
+                    "--accent-2": "#ff4444",
+                    "--accent-3": "#ff6b6b",
+                    "--hover-bg": "#ff4d4d",
+                    "--button-bg": "#ff5252",
+                    "--button-hover-bg": "#ff4d4d",
+                },
+                sereneLavender: {
+                    "--primary": "#9b59b6",
+                    "--primary-light": "#ab70c6",
+                    "--primary-dark": "#7a478d",
+                    "--secondary": "#dcd6f7",
+                    "--secondary-light": "#f1f0fe",
+                    "--secondary-dark": "#a5a1d8",
+                    "--bg": "#f6f0ff",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#4a347f",
+                    "--hover-bg": "#ece3ff",
+                    "--section-bg": "#f5f0ff",
+                    "--section-border": "#d0a3db",
+                    "--mini-card-bg": "#f3e6f9",
+                    "--mini-card-border": "#d4aee0",
+                    "--mini-card-hover": "#d8b7e4",
+                    "--button-bg": "#9b59b6",
+                    "--button-hover-bg": "#7a478d",
+                },
+                oceanBreeze: {
+                    "--primary": "#0077b6",
+                    "--primary-light": "#66a6c9",
+                    "--primary-dark": "#004f74",
+                    "--secondary": "#90e0ef",
+                    "--secondary-light": "#b8efff",
+                    "--secondary-dark": "#60b6c8",
+                    "--bg": "#e0f7fa",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#003b5c",
+                    "--hover-bg": "#caf0f8",
+                    "--section-bg": "#d4eaff",
+                    "--section-border": "#5bb8d1",
+                    "--mini-card-bg": "#b3e2f2",
+                    "--mini-card-border": "#7fb7cf",
+                    "--mini-card-hover": "#a1d2e6",
+                    "--button-bg": "#0077b6",
+                    "--button-hover-bg": "#005f86",
+                },
+                goldenSunset: {
+                    "--primary": "#ff6b6b",
+                    "--primary-light": "#ff9999",
+                    "--primary-dark": "#d94d4d",
+                    "--secondary": "#ffa502",
+                    "--secondary-light": "#ffbf6e",
+                    "--secondary-dark": "#d57f00",
+                    "--bg": "#fffaf0",
+                    "--card-bg": "#fff6f0",
+                    "--text-color": "#4e342e",
+                    "--hover-bg": "#ffe9d6",
+                    "--section-bg": "#fff3e6",
+                    "--section-border": "#ffcc99",
+                    "--mini-card-bg": "#f9e6e1",
+                    "--mini-card-border": "#f5c5b0",
+                    "--mini-card-hover": "#f8d1b6",
+                    "--button-bg": "#ff6b6b",
+                    "--button-hover-bg": "#ff4444",
+                },
+                softStone: {
+                    "--primary": "#7f8c8d",
+                    "--primary-light": "#a4b0b1",
+                    "--primary-dark": "#5f6a6a",
+                    "--secondary": "#bdc3c7",
+                    "--secondary-light": "#d0d6d7",
+                    "--secondary-dark": "#98a1a2",
+                    "--bg": "#f2f4f4",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#2c3e50",
+                    "--hover-bg": "#e5e8e8",
+                    "--section-bg": "#d9e0e3",
+                    "--section-border": "#b7c1c4",
+                    "--mini-card-bg": "#d9e0e3",
+                    "--mini-card-border": "#c1c8c9",
+                    "--mini-card-hover": "#c8d1d2",
+                    "--button-bg": "#7f8c8d",
+                    "--button-hover-bg": "#5e6b6c",
+                },
+                softBlush: {
+                    "--primary": "#ff9aa2",
+                    "--primary-light": "#ffb6c1",
+                    "--primary-dark": "#e27a82",
+                    "--secondary": "#ffd3b6",
+                    "--secondary-light": "#fff2d9",
+                    "--secondary-dark": "#f8c19f",
+                    "--bg": "#fff5f8",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#b33951",
+                    "--hover-bg": "#ffe9ef",
+                    "--section-bg": "#ffe3ea",
+                    "--section-border": "#fbc9d0",
+                    "--mini-card-bg": "#ffe8ec",
+                    "--mini-card-border": "#f5ccd3",
+                    "--mini-card-hover": "#ffdce3",
+                    "--button-bg": "#ff9aa2",
+                    "--button-hover-bg": "#e27a82",
+                },
+            };
+
+            // Dynamic Hero Description Rotation
+            const heroDescriptions = [
+                "Start with Part A: A 14-item wellness snapshot to help you reflect.",
+                "Then move to Part B: Dive deeper with 24 thoughtful prompts.",
+                "Gain insight into your emotions, relationships, purpose, and more.",
+                "Each step is a guided moment of reflection — at your own pace.",
+                "In just a few minutes, explore how you've really been feeling.",
+                "No rush. No pressure. Just clarity, one question at a time.",
+                "T|Check helps you recognize your strengths and areas of support.",
+                "Mental well-being starts with awareness — you're in the right place.",
+                "Let’s begin your journey toward greater clarity and balance.",
+            ];
+
+            let heroIndex = 0;
+            const heroEl = document.getElementById("hero-description-dynamic");
+
+            setInterval(() => {
+                heroEl.style.opacity = 0;
+                setTimeout(() => {
+                    heroEl.textContent = heroDescriptions[heroIndex];
+                    heroEl.style.opacity = 1;
+                    heroIndex = (heroIndex + 1) % heroDescriptions.length;
+                }, 500);
+            }, 5000);
+
+let currentTheme = localStorage.getItem("theme") || "default";
+const themeSelect = document.getElementById("themeSelect");
+
+function applyTheme(themeName) {
+    const theme = themes[themeName];
+    if (!theme) return;
+
+    // Apply CSS variables
+    Object.keys(theme).forEach((key) => {
+        document.documentElement.style.setProperty(key, theme[key]);
+    });
+
+    // Adjust text color based on --primary-dark
+    setHeroDescriptionTextColor();
+
+    // Store and sync
+    localStorage.setItem("theme", themeName);
+    currentTheme = themeName;
+
+    // Broadcast to all iframes
+    document.querySelectorAll("iframe").forEach((iframe) => {
+        iframe.contentWindow?.postMessage({ theme: themeName }, "*");
+    });
+}
+
+function getComputedCSSVar(variable) {
+    return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+}
+
+function getLuminance(hex) {
+    const rgb = hex.replace("#", "").match(/.{2}/g).map((x) => parseInt(x, 16) / 255);
+    const lum = rgb.map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
+}
+
+function setHeroDescriptionTextColor() {
+    const bg = getComputedCSSVar("--primary-dark");
+    if (!bg || !bg.startsWith("#")) return;
+    const luminance = getLuminance(bg);
+    const color = luminance > 0.5 ? "#111" : "#fff";
+    const heroDesc = document.querySelector(".hero-description");
+    if (heroDesc) heroDesc.style.color = color;
+}
+
+// Handle messages from parent or other sources
+window.addEventListener("message", (event) => {
+    if (event.data?.theme && themes[event.data.theme]) {
+        applyTheme(event.data.theme);
+        if (themeSelect) themeSelect.value = event.data.theme;
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Initial theme setup
+    applyTheme(currentTheme);
+    if (themeSelect) themeSelect.value = currentTheme;
+
+    // Re-broadcast theme after short delay (for iframes loading late)
+    setTimeout(() => {
+        document.querySelectorAll("iframe").forEach((iframe) => {
+            iframe.contentWindow?.postMessage({ theme: currentTheme }, "*");
+        });
+    }, 500);
+
+    // Theme dropdown handler
+    if (themeSelect) {
+        themeSelect.addEventListener("change", (e) => {
+            applyTheme(e.target.value);
+        });
+    }
+});
+        </script>
+    </body>
+</html>

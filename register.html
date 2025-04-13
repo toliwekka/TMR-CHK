@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mental Health Hub</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+        <script>
+            (function () {
+            const themes = {
+                default: {
+        "--primary": "#003366",
+        "--primary-light": "#00509e",
+        "--primary-dark": "#001f4d",
+        "--secondary": "#5ac8fa",
+        "--secondary-light": "#a3e4f7",
+        "--secondary-dark": "#0077b6",
+        "--bg": "#f4f6f8",
+        "--card-bg": "#ffffff",
+        "--text-color": "#ffffff",
+        "--accent-1": "#00bfff",
+        "--accent-2": "#e0f7fa",
+        "--accent-3": "#dde2e8",
+        "--hover-bg": "#001f4d",
+        "--hover-text": "#ffffff",
+        "--section-bg": "#ffffff",
+        "--section-border": "#ccc",
+        "--mini-card-bg": "#e6f0fa",
+        "--mini-card-border": "#b0c4de",
+        "--mini-card-hover": "#cce6ff",
+        "--button-bg": "#003366",
+        "--button-hover-bg": "#00509e"
+                },
+
+                fieryRed: {
+                    "--primary": "#930d0e",
+                    "--primary-light": "#c22c2c",
+                    "--primary-dark": "#7b0a0b",
+                    "--secondary": "#2a7a4e",
+                    "--secondary-light": "#66b59b",
+                    "--secondary-dark": "#1e5c3f",
+                    "--bg": "#f5fdf7",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#333",
+                    "--accent-1": "#f9d5d4",
+                    "--accent-2": "#e4b0b1",
+                    "--accent-3": "#f1c0c1",
+                    "--hover-bg": "#d46a6a",
+                    "--button-bg": "#930d0e",
+                    "--button-hover-bg": "#b35c5c",
+                },
+                blushRose: {
+                    "--primary": "#e84393",
+                    "--primary-light": "#f56eb5",
+                    "--primary-dark": "#b93372",
+                    "--secondary": "#fab1a0",
+                    "--secondary-light": "#ffcfb8",
+                    "--secondary-dark": "#f28f75",
+                    "--bg": "#fceff9",
+                    "--card-bg": "#fff",
+                    "--text-color": "#6c2c5b",
+                    "--accent-1": "#ffe2e6",
+                    "--accent-2": "#ffccd7",
+                    "--accent-3": "#ffd0d8",
+                    "--hover-bg": "#f3a8b7",
+                    "--button-bg": "#e84393",
+                    "--button-hover-bg": "#ec5987",
+                },
+                midnightDark: {
+                    "--primary": "#ff5252",
+                    "--primary-light": "#ff7f7f",
+                    "--primary-dark": "#e10000",
+                    "--secondary": "#00c896",
+                    "--secondary-light": "#33e0b3",
+                    "--secondary-dark": "#009c75",
+                    "--bg": "#1a1a1a",
+                    "--card-bg": "#2a2a2a",
+                    "--text-color": "#eee",
+                    "--accent-1": "#ff2d2d",
+                    "--accent-2": "#ff4444",
+                    "--accent-3": "#ff6b6b",
+                    "--hover-bg": "#ff4d4d",
+                    "--button-bg": "#ff5252",
+                    "--button-hover-bg": "#ff4d4d",
+                },
+                sereneLavender: {
+                    "--primary": "#9b59b6",
+                    "--primary-light": "#ab70c6",
+                    "--primary-dark": "#7a478d",
+                    "--secondary": "#dcd6f7",
+                    "--secondary-light": "#f1f0fe",
+                    "--secondary-dark": "#a5a1d8",
+                    "--bg": "#f6f0ff",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#4a347f",
+                    "--hover-bg": "#ece3ff",
+                    "--section-bg": "#f5f0ff",
+                    "--section-border": "#d0a3db",
+                    "--mini-card-bg": "#f3e6f9",
+                    "--mini-card-border": "#d4aee0",
+                    "--mini-card-hover": "#d8b7e4",
+                    "--button-bg": "#9b59b6",
+                    "--button-hover-bg": "#7a478d",
+                },
+                oceanBreeze: {
+                    "--primary": "#0077b6",
+                    "--primary-light": "#66a6c9",
+                    "--primary-dark": "#004f74",
+                    "--secondary": "#90e0ef",
+                    "--secondary-light": "#b8efff",
+                    "--secondary-dark": "#60b6c8",
+                    "--bg": "#e0f7fa",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#003b5c",
+                    "--hover-bg": "#caf0f8",
+                    "--section-bg": "#d4eaff",
+                    "--section-border": "#5bb8d1",
+                    "--mini-card-bg": "#b3e2f2",
+                    "--mini-card-border": "#7fb7cf",
+                    "--mini-card-hover": "#a1d2e6",
+                    "--button-bg": "#0077b6",
+                    "--button-hover-bg": "#005f86",
+                },
+                goldenSunset: {
+                    "--primary": "#ff6b6b",
+                    "--primary-light": "#ff9999",
+                    "--primary-dark": "#d94d4d",
+                    "--secondary": "#ffa502",
+                    "--secondary-light": "#ffbf6e",
+                    "--secondary-dark": "#d57f00",
+                    "--bg": "#fffaf0",
+                    "--card-bg": "#fff6f0",
+                    "--text-color": "#4e342e",
+                    "--hover-bg": "#ffe9d6",
+                    "--section-bg": "#fff3e6",
+                    "--section-border": "#ffcc99",
+                    "--mini-card-bg": "#f9e6e1",
+                    "--mini-card-border": "#f5c5b0",
+                    "--mini-card-hover": "#f8d1b6",
+                    "--button-bg": "#ff6b6b",
+                    "--button-hover-bg": "#ff4444",
+                },
+                softStone: {
+                    "--primary": "#7f8c8d",
+                    "--primary-light": "#a4b0b1",
+                    "--primary-dark": "#5f6a6a",
+                    "--secondary": "#bdc3c7",
+                    "--secondary-light": "#d0d6d7",
+                    "--secondary-dark": "#98a1a2",
+                    "--bg": "#f2f4f4",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#2c3e50",
+                    "--hover-bg": "#e5e8e8",
+                    "--section-bg": "#d9e0e3",
+                    "--section-border": "#b7c1c4",
+                    "--mini-card-bg": "#d9e0e3",
+                    "--mini-card-border": "#c1c8c9",
+                    "--mini-card-hover": "#c8d1d2",
+                    "--button-bg": "#7f8c8d",
+                    "--button-hover-bg": "#5e6b6c",
+                },
+                softBlush: {
+                    "--primary": "#ff9aa2",
+                    "--primary-light": "#ffb6c1",
+                    "--primary-dark": "#e27a82",
+                    "--secondary": "#ffd3b6",
+                    "--secondary-light": "#fff2d9",
+                    "--secondary-dark": "#f8c19f",
+                    "--bg": "#fff5f8",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#b33951",
+                    "--hover-bg": "#ffe9ef",
+                    "--section-bg": "#ffe3ea",
+                    "--section-border": "#fbc9d0",
+                    "--mini-card-bg": "#ffe8ec",
+                    "--mini-card-border": "#f5ccd3",
+                    "--mini-card-hover": "#ffdce3",
+                    "--button-bg": "#ff9aa2",
+                    "--button-hover-bg": "#e27a82",
+                },
+            };
+
+                const themeName = localStorage.getItem("theme") || "default";
+                const theme = themes[themeName];
+                if (theme) {
+                    const root = document.documentElement;
+                    const style = document.createElement("style");
+                    let cssVars = ":root {";
+                    for (const key in theme) {
+                        cssVars += `${key}: ${theme[key]};`;
+                    }
+                    cssVars += "}";
+                    style.innerHTML = cssVars;
+                    document.head.appendChild(style);
+                }
+            })();
+        </script>
+
+        <style>
+            html {
+                transition: none !important;
+            }
+        </style>
+
+        <style>
+            :root {
+                --primary: #2ecc71;
+                --primary-light: #3ae074;
+                --primary-dark: #1e8e4e;
+                --secondary: #a3e4d7;
+                --secondary-light: #b9f6e3;
+                --secondary-dark: #7acfa6;
+                --bg: #edf8f6;
+                --card-bg: #f8fdfa;
+                --text-color: #145a32;
+                --accent-1: #b8e6d4;
+                --accent-2: #cceee3;
+                --accent-3: #dfeff0;
+                --hover-bg: #d4f0e4;
+                --hover-text: #0e3d24;
+                --section-bg: #ffffff;
+                --section-border: #ddd;
+                --mini-card-bg: #f0f9f0;
+                --mini-card-border: #cce6cc;
+                --mini-card-hover: #d1e7d1;
+                --button-bg: #2ecc71;
+                --button-hover-bg: #28a745;
+                --gradient: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+                --glass: rgba(255, 255, 255, 0.3);
+                --text-dark: var(--text-color);
+                --text-light: #fff;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                --accent: var(--primary);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                height: 100vh;
+                font-family: "Poppins", sans-serif;
+                background: var(--gradient);
+                color: var(--text-dark);
+                overflow: hidden;
+            }
+
+            body {
+                background-color: var(--bg);
+                color: var(--text-color);
+                padding: 40px 0;
+                margin: 20px;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                height: 75vh;
+                width: 90vw;
+                background: var(--gradient);
+                position: relative;
+                gap: 1rem;
+            }
+
+            .theme-switcher {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
+
+            .card-wrapper {
+                background: var(--card-bg);
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                padding: 40px;
+                max-width: 900px;
+                margin: auto;
+            }
+
+            h1,
+            .section-title {
+                color: var(--primary);
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin-top: 30px;
+                margin-bottom: 15px;
+            }
+
+            .form-control,
+            .form-select {
+                border-radius: 12px;
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .left,
+            .right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                backdrop-filter: blur(30px);
+                background: var(--glass);
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                transition: 0.3s ease;
+            }
+
+            .left:hover,
+            .right:hover {
+                transform: scale(1.01);
+            }
+
+            .left h1,
+            .left p {
+                color: var(--text-light);
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+
+            .left h1 {
+                font-size: 3rem;
+            }
+
+            .left p {
+                font-size: 1.2rem;
+                max-width: 400px;
+                margin: 1rem 0;
+            }
+
+            .cta-button {
+                background: var(--section-bg);
+                color: var(--primary);
+                padding: 0.9rem 2rem;
+                border: none;
+                border-radius: 30px;
+                font-weight: bold;
+                font-size: 1rem;
+                box-shadow: var(--shadow);
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background: var(--primary);
+                color: #fff;
+            }
+
+            .how-it-works h2 {
+                color: var(--text-light);
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .steps {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .step {
+                background: var(--section-bg);
+                padding: 1rem;
+                border-radius: 20px;
+                max-width: 180px;
+                text-align: center;
+                transition: all 0.3s ease-in-out;
+                box-shadow: var(--shadow);
+            }
+
+            .step:hover {
+                transform: translateY(-5px);
+                background: var(--primary);
+                color: #fff;
+            }
+
+            .step i {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .step h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .step p {
+                font-size: 0.9rem;
+            }
+
+            .registration-section {
+                padding: 4rem;
+                background: var(--glass);
+                margin: 2rem auto;
+                border-radius: 30px;
+                box-shadow: var(--shadow);
+                max-width: 180vw;
+                color: var(--text-dark);
+            }
+
+            .registration-section h2 {
+                text-align: center;
+                color: var(--text-light);
+                margin-bottom: 1rem;
+            }
+
+            .registration-section input,
+            .registration-section select,
+            .registration-section textarea {
+                display: block;
+                width: 90%;
+                padding: 0.8rem;
+                margin: 0.5rem 0 1rem;
+                border-radius: 10px;
+                border: 1px solid var(--section-border);
+                font-family: "Poppins", sans-serif;
+                background: var(--section-bg);
+                color: var(--text-color);
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .add-form-label {
+                width: 200px;
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--hover-text);
+                background: var(--accent-3);
+                padding: 12px;
+                border: 2px groove var(--accent-1);
+                border-radius: 8px;
+                text-align: right;
+                margin-right: 20px;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .MS-add-form-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                position: relative;
+            }
+            .MS-add-form-label {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 120px;
+                font-size: clamp(0.75rem, 1.2vw, 0.95rem); /* Responsive + slightly smaller */
+                font-weight: 600;
+                color: white;
+                background: #f75c8a;
+                padding: 10px;
+                border: 2px groove #888;
+                border-radius: 8px;
+                text-align: right;
+                margin-right: 20px;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+                /* Ensure text stays inside */
+                white-space: wrap;
+                text-overflow: ellipsis;
+
+                /* Sharpen text rendering */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-rendering: geometricPrecision;
+            }
+
+            /* Base styles */
+            html,
+            body {
+                font-family: "Poppins", sans-serif;
+                background-color: var(--bg);
+                color: var(--text-color);
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                overflow: auto;
+                transition: background 0.3s, color 0.3s;
+            }
+
+            .container {
+                background-color: var(--card-bg);
+                padding: 2rem 20px;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            /* Accordion styles */
+            .accordion-item {
+                border: 1px solid var(--secondary);
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+
+            .accordion-item {
+                margin-bottom: 1rem;
+                border-radius: 10px;
+                overflow: hidden;
+                background: var(--section-bg);
+                box-shadow: var(--shadow);
+                width: 140%; /* 1.5 times the original width */
+            }
+
+            .accordion-header {
+                background: var(--primary);
+                color: #fff;
+                padding: 1rem;
+                text-align: left;
+                font-size: 1.1rem;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            .accordion-body {
+                padding: 1rem;
+                display: none;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+
+            .accordion-item.active .accordion-body {
+                display: block;
+            }
+
+            .accordion-header {
+                background: var(--primary);
+                color: white;
+                font-size: 1.1rem;
+                font-weight: 600;
+                padding: 16px 20px;
+                width: 150vw; /* 1.5 times the width of the container */
+                text-align: left;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                transition: background 0.3s;
+                display: block; /* Ensures it's treated as a block element */
+                position: relative; /* Makes sure it stays in flow with the container */
+            }
+
+            .accordion-container {
+                overflow: visible; /* Ensures the parent container is flexible with width overflow */
+            }
+
+            .accordion-header:hover {
+                background: var(--primary-dark);
+            }
+
+            .accordion-body {
+                padding: 20px;
+                display: none;
+                background-color: var(--card-bg);
+                color: var(--text-color);
+                border-top: 1px solid var(--section-border);
+                animation: fadeIn 0.4s ease-in-out;
+            }
+
+            .accordion-body.show {
+                display: block;
+            }
+
+            /* Checkbox styles */
+            .checkbox-container {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: var(--text-color);
+            }
+
+            .checkbox-container input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                accent-color: var(--primary);
+            }
+
+            /* Buttons */
+            .cta-button {
+                margin-top: 20px;
+                padding: 12px 24px;
+                background: var(--button-bg);
+                color: white;
+                border: none;
+                border-radius: 30px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+                transition: background 0.3s, transform 0.2s;
+            }
+
+            .cta-button:hover {
+                background: var(--button-hover-bg);
+                transform: translateY(-2px);
+            }
+
+            /* Fade animation */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Layout & cards */
+            .pane {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            .pane > .card {
+                background: var(--card-bg);
+                border-radius: 16px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                flex: 1 1 400px;
+                min-width: 350px;
+                transition: all 0.4s ease;
+            }
+
+            .card:hover {
+                transform: scale(1.02);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .card-icon {
+                font-size: 3rem;
+                color: var(--primary);
+                margin-bottom: 15px;
+            }
+
+            .card h3 {
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            /* Form sections */
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-label {
+                display: block;
+                margin-bottom: 6px;
+                color: var(--text-color);
+                font-weight: 500;
+            }
+
+            .theme-input,
+            .theme-select {
+                padding: 10px;
+                border: 1px solid var(--section-border);
+                border-radius: 6px;
+                background: var(--card-bg);
+                color: var(--text-color);
+                width: 100%;
+            }
+
+            /* MS Form specific */
+            .MS-add-form-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                position: relative;
+            }
+
+            .MS-add-form-label {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 120px;
+                font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+                font-weight: 600;
+                color: var(--hover-text);
+                background-color: var(--accent-1);
+                padding: 10px;
+                border: 2px groove var(--accent-3);
+                border-radius: 8px;
+                margin-right: 20px;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .MS-add-form-control {
+                flex-grow: 1;
+                padding: 12px;
+                font-size: 1rem;
+                border: 1px solid var(--section-border);
+                border-radius: 6px;
+                background-color: var(--section-bg);
+                color: var(--text-color);
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            }
+
+            /* Suggestion box */
+            .MS-add-suggestion-box {
+                border: 1px solid var(--section-border);
+                max-height: 150px;
+                overflow-y: auto;
+                position: absolute;
+                background: var(--section-bg);
+                width: 100%;
+                z-index: 999;
+                border-radius: 5px;
+                color: var(--text-color);
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .MS-add-suggestion-box div {
+                padding: 10px;
+                cursor: pointer;
+                border-bottom: 1px solid var(--accent-3);
+            }
+
+            .MS-add-suggestion-box div:hover {
+                background-color: var(--hover-bg);
+            }
+
+            /* Sections */
+            .section {
+                background: var(--card-bg);
+                color: var(--text-color);
+                backdrop-filter: blur(10px);
+                border-radius: 12px;
+                padding: 20px;
+            }
+
+            .section-title {
+                color: var(--primary);
+                font-weight: 600;
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            /* Theme switcher */
+            .theme-switcher {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+            }
+
+            .theme-switcher select {
+                padding: 5px 10px;
+                border-radius: 8px;
+            }
+
+            /* Ensure section.left is a flex container */
+            section.left {
+                display: flex; /* Use flexbox */
+                justify-content: center; /* Center the accordion horizontally */
+                width: 100%; /* Ensure the section takes full width */
+                padding: 20px; /* Adjust padding as needed */
+                box-sizing: border-box; /* Ensures padding is included in the element's width */
+                flex-direction: column; /* Ensures content is stacked vertically */
+            }
+
+            /* Ensure the accordion is centered */
+            .accordion {
+                display: row; /* Use flexbox for alignment */
+                justify-content: center; /* Center the accordion horizontally */
+                width: 100%; /* Allow accordion to expand fully within its container */
+            }
+
+            /* Accordion container should expand and take full width */
+            .accordion-container {
+                width: 100%; /* Make accordion container take full width of the section */
+                display: flex;
+                justify-content: center; /* Center the items inside the container */
+            }
+
+            /* Accordion item to expand and be centered */
+            .accordion-item {
+                margin-bottom: 1rem;
+                border-radius: 10px;
+                overflow: hidden;
+                background: var(--section-bg);
+                box-shadow: var(--shadow);
+                width: 80%; /* Set to 80% of the section's width */
+                max-width: 900px; /* Optional: Limit max width */
+                margin: 0 auto; /* Center the accordion item */
+            }
+
+            /* Accordion header styling */
+            .accordion-header {
+                background: var(--primary);
+                color: #fff;
+                padding: 1rem;
+                text-align: left;
+                font-size: 1.1rem;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                width: 100%; /* Ensure header takes up the full width of the item */
+                box-sizing: border-box; /* Include padding in width calculation */
+            }
+
+            /* Optional: Make sure section grows with content */
+            section.left {
+                height: auto; /* Ensures the section expands to fit its content */
+            }
+
+            .register-flex {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            /* Default side-by-side */
+            .register-flex .left,
+            .register-flex .right {
+                flex: 1 1 45%;
+                min-width: 40vw;
+            }
+
+            /* Stack on smaller screens */
+            @media (max-width: 768px) {
+                .register-flex {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .register-flex .left,
+                .register-flex .right {
+                    width: 100%;
+                }
+            }
+
+            .register-flex {
+                display: flex;
+                flex-direction: row; /* Explicitly define row layout for larger screens */
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            /* Left and Right sections take roughly half width */
+            .register-flex .left,
+            .register-flex .right {
+                flex: 1 1 45%;
+                min-width: 350px; /* Slightly safer minimum for layout */
+            }
+
+            /* Stack on smaller screens */
+            @media (max-width: 768px) {
+                .register-flex {
+                    flex-direction: column; /* Stack vertically */
+                    align-items: stretch;
+                }
+
+                .register-flex .left,
+                .register-flex .right {
+                    width: 100;
+                }
+            }
+
+            .register-flex {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100vw;
+                box-sizing: border-box;
+                margin: 0 auto;
+            }
+
+            /* Left and Right sections - aesthetic widths */
+            .register-flex .left,
+            .register-flex .right {
+                flex: 1 1 500px;
+                max-width: 600px;
+                min-width: 300px;
+                box-sizing: border-box;
+            }
+
+            /* Medium screens (stacked layout) */
+            @media (max-width: 992px) {
+                .register-flex {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .register-flex .left,
+                .register-flex .right {
+                    width: 85vw;
+                    max-width: 700px;
+                    min-width: 80vw;
+                }
+            }
+
+            /* Small screens (phones) */
+            @media (max-width: 576px) {
+                .register-flex .left,
+                .register-flex .right {
+                    width: 95vw;
+                    min-width: 90vw;
+                }
+            }
+
+            .register-flex {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+
+            /* Left and Right sections - elegant widths */
+            .register-flex .left,
+            .register-flex .right {
+                flex: 1 1 500px;
+                max-width: 550px;
+                min-width: 300px;
+                box-sizing: border-box;
+            }
+
+            /* Medium screens (tablet) - stack vertically */
+            @media (max-width: 992px) {
+                .register-flex {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .register-flex .left,
+                .register-flex .right {
+                    width: 85vw;
+                    max-width: 700px;
+                    min-width: 75vw;
+                }
+            }
+
+            /* Small screens (phones) */
+            @media (max-width: 576px) {
+                .register-flex .left,
+                .register-flex .right {
+                    width: 95vw;
+                    min-width: 90vw;
+                }
+            }
+
+            .registration-wrapper {
+                max-width: 100vw;
+                margin: auto;
+                padding: 2rem;
+            }
+
+            .registration-section.glass-section {
+                background: rgba(255, 255, 255, 0.05);
+                color: #fff;
+                border-radius: 20px;
+                padding: 2rem;
+                backdrop-filter: blur(15px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .register-flex {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: space-between;
+                align-items: stretch;
+            }
+
+            .registration-panel {
+                flex: 1 1 45%;
+                background: rgba(255, 255, 255, 0.06);
+                padding: 2rem;
+                border-radius: 16px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                min-width: 300px;
+            }
+
+            .registration-panel.highlight {
+                background: var(--primary);
+                color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .panel-title {
+                font-size: 1.8rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+
+            .panel-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .benefits-list {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .benefits-list li {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .benefits-list i {
+                color: var(--accent-1, #b8e6d4);
+                font-size: 1.2rem;
+            }
+
+            /* RESPONSIVENESS */
+            @media (max-width: 992px) {
+                .register-flex {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .registration-panel {
+                    width: 90vw;
+                    max-width: 700px;
+                }
+            }
+
+            .register-flex {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+                width: 100vw;
+                max-width: 1400px; /* Stretches more but keeps it inside view on large screens */
+                margin: 0 auto;
+                padding: 0 2rem; /* Optional: Add side padding */
+                box-sizing: border-box;
+            }
+
+            .register-flex {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between; /* Ensures items stretch naturally */
+                align-items: flex-start;
+                gap: 2rem;
+                flex-wrap: wrap;
+                width: 100vw;
+                padding: 0 2rem;
+                box-sizing: border-box;
+            }
+
+            /* Force row stacking on large screens */
+            .register-flex .left,
+            .register-flex .right {
+                flex: 1 1 500px; /* Base flexibility */
+                max-width: 600px; /* Aesthetic cap */
+                min-width: 400px;
+                box-sizing: border-box;
+            }
+
+            /* Stack on medium and below */
+            @media (max-width: 992px) {
+                .register-flex {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .register-flex .left,
+                .register-flex .right {
+                    width: 85vw;
+                    max-width: 700px;
+                    min-width: 80vw;
+                }
+            }
+
+            /* Extra stacking on smaller devices */
+            @media (max-width: 576px) {
+                .register-flex .left,
+                .register-flex .right {
+                    width: 95vw;
+                    min-width: 90vw;
+                }
+            }
+
+            .registration-section.glass-section {
+                width: auto;
+                max-width: 180vw; /* You can adjust this based on your layout */
+                min-height: auto; /* Adjust height as needed (80% of viewport height) */
+                margin: 0 auto; /* Center horizontally */
+                padding: 2rem; /* Inner spacing */
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-sizing: border-box;
+            }
+
+            .container.registration-wrapper {
+                width: auto;
+                max-width: auto;
+                margin: 0 auto;
+                padding: 2rem;
+                box-sizing: border-box;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 2rem;
+            }
+
+            .card-button[data-disabled="true"] {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+                user-select: none;
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page-wrapper {
+                flex: 1;
+            }
+
+            .sticky-footer {
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                text-align: center;
+                padding: 1rem 0;
+                font-size: 0.9rem;
+                backdrop-filter: blur(10px);
+                width: 100%;
+            }
+
+            .sticky-footer a {
+                color: #ffd3a5;
+                text-decoration: none;
+                margin: 0 0.5rem;
+            }
+
+            .sticky-footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+        <style>
+            .squared-card {
+                width: 280px;
+                height: 280px;
+                background: var(--card-bg);
+                color: var(--text-color);
+                border: 2px solid var(--primary);
+                border-radius: 16px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+                backdrop-filter: blur(14px);
+            }
+
+            .squared-card:hover {
+                background: var(--hover-bg);
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            .squared-card .card-icon {
+                font-size: 2.5rem;
+                margin-bottom: 0.75rem;
+                color: var(--primary-dark);
+            }
+
+            .squared-card .card-title {
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: var(--text-color);
+            }
+
+            .squared-card .card-text {
+                font-size: 0.95rem;
+                opacity: 0.85;
+                color: var(--text-color);
+            }
+
+            /* Optional disabled state */
+            .squared-card[data-disabled="true"] {
+                opacity: 0.5;
+                pointer-events: none;
+                filter: grayscale(0.4);
+            }
+
+            .label-style {
+                background-color: var(--primary);
+                padding: 0.5rem;
+                border-radius: 5px;
+                color: #fff;
+                margin-right: 10px;
+                white-space: wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main content area -->
+        <div class="page-wrapper">
+            <div class="theme-switcher">
+            <select id="themeSelect" class="form-select">
+                <option value="default" selected>TMR Fresh</option>
+                <option value="fieryRed">🔥 Fiery Red</option>
+                <option value="blushRose">🌸 Blush Rose</option>
+                <option value="midnightDark">🌚 Midnight Dark</option>
+                <option value="sereneLavender">💜 Serene Lavender</option>
+                <option value="oceanBreeze">🌊 Ocean Breeze</option>
+                <option value="goldenSunset">🌅 Golden Sunset</option>
+                <option value="softStone">🪶 Soft Stone</option>
+                <option value="softBlush">💖 Soft Blush</option>
+            </select>
+            </div>
+
+            <!div class="container">
+            <!section class="registration-section" style="background: rgba(0, 0, 0, 0.3); color: #fff; backdrop-filter: blur(10px);">
+            <!div class="register-flex">
+
+            <div id="rgStr" class="container registration-wrapper">
+                <section class="registration-section glass-section" style="background: rgba(0, 0, 0, 0.3); color: #fff; backdrop-filter: blur(10px);">
+                    <h2 class="section-title">Complete Your Registration</h2>
+                    <div class="register-flex">
+                        <!-- LEFT SECTION -->
+                        <section class="left registration-panel">
+                            <h3 class="panel-title">Your Details</h3>
+
+                            <div class="accordion">
+                                <!-- CONTACT DETAILS -->
+                                <div class="accordion-item">
+                                    <button class="accordion-header">🏛️ Evaluation Venue</button>
+                                    <div class="accordion-body">
+                                        <!-- Address Input -->
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="assessment_location" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Evaluation Venue
+                                            </label>
+                                            <select
+                                                id="assessment_location"
+                                                class="form-group"
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="" selected disabled>Select...</option>
+                                                <option value="work">Work</option>
+                                                <option value="hospital">Hospital</option>
+                                                <option value="event">Event</option>
+                                                <option value="academic">Academic Institution</option>
+                                                <option value="government">Government Office</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px; position: relative;">
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="MS-add_address" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Evaluation Location
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="MS-add_address"
+                                                    class="MS-add-form-control"
+                                                    placeholder="Search by address or postcode..."
+                                                    autocomplete="off"
+                                                    style="width: 100%; padding: 0.5rem; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc;"
+                                                />
+                                                <div
+                                                    id="MS-add_suggestions"
+                                                    class="MS-add-suggestion-box"
+                                                    style="
+                                                        position: absolute;
+                                                        top: 100%;
+                                                        left: 0;
+                                                        right: 0;
+                                                        background: #ffd5db;
+                                                        border: 1px solid #ccc;
+                                                        border-top: none;
+                                                        z-index: 10;
+                                                        display: none;
+                                                        max-height: 200px;
+                                                        overflow-y: auto;
+                                                        margin-top: 8px;
+                                                        border-radius: 5px;
+                                                    "
+                                                ></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Country Field (Auto-filled) -->
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="MS-add_country" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Country
+                                            </label>
+
+                                            <input type="text" id="MS-add_country" class="MS-add-form-control" readonly style="background-color: #f9f9f9; cursor: not-allowed;" />
+                                            <!/div>
+                                        </div>
+                                        <script>
+                                            const addressInput = document.getElementById("MS-add_address");
+                                            const suggestionsBox = document.getElementById("MS-add_suggestions");
+
+                                            let debounceTimer;
+                                            
+
+                                            // Global variable to store the selected country
+                                            let selectedCountry = "";
+
+                                            function escapeHTML(str) {
+                                                return str.replace(
+                                                    /[&<>"']/g,
+                                                    (m) =>
+                                                        ({
+                                                            "&": "&amp;",
+                                                            "<": "&lt;",
+                                                            ">": "&gt;",
+                                                            '"': "&quot;",
+                                                            "'": "&#039;",
+                                                        }[m])
+                                                );
+                                            }
+
+                                            function setFieldValue(id, value) {
+                                                const el = document.getElementById(id);
+                                                if (el) el.value = value || "";
+                                            }
+
+                                            function clearSuggestions() {
+                                                suggestionsBox.innerHTML = "";
+                                                suggestionsBox.style.display = "none";
+                                            }
+
+                                            function showSuggestions(results) {
+                                                clearSuggestions();
+
+                                                results.forEach((item) => {
+                                                    const suggestionItem = document.createElement("div");
+                                                    suggestionItem.innerHTML = escapeHTML(item.display_name);
+                                                    suggestionItem.style.cssText = "padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; font-family: Poppins, sans-serif;";
+
+                                                    suggestionItem.onclick = () => {
+                                                        addressInput.value = item.display_name;
+
+                                                        const address = item.address || {};
+                                                        setFieldValue("MS-add_address_line1", address.road || address.building || item.display_name);
+                                                        setFieldValue("MS-add_address_line2", address.suburb || address.neighbourhood);
+                                                        setFieldValue("MS-add_city", address.city || address.town || address.village);
+                                                        setFieldValue("MS-add_country", address.country);
+
+                                                        // Update the global selectedCountry with the selected country
+                                                        selectedCountry = address.country;
+
+                                                        clearSuggestions();
+
+                                                        // Call function to update regulation based on selected country
+                                                        updateDataLawNote();
+                                                    };
+
+                                                    suggestionsBox.appendChild(suggestionItem);
+                                                });
+
+                                                suggestionsBox.style.display = "block";
+                                            }
+
+                                            addressInput.addEventListener("input", () => {
+                                                const query = addressInput.value.trim();
+
+                                                clearTimeout(debounceTimer);
+
+                                                if (query.length < 3) {
+                                                    clearSuggestions();
+                                                    return;
+                                                }
+
+                                                debounceTimer = setTimeout(() => {
+                                                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1`)
+                                                        .then((response) => {
+                                                            if (!response.ok) throw new Error("Network error.");
+                                                            return response.json();
+                                                        })
+                                                        .then((data) => {
+                                                            if (Array.isArray(data) && data.length > 0) {
+                                                                showSuggestions(data);
+                                                            } else {
+                                                                clearSuggestions();
+                                                            }
+                                                        })
+                                                        .catch((error) => {
+                                                            console.error("Address fetch failed:", error);
+                                                            clearSuggestions();
+                                                        });
+                                                }, 300);
+                                            });
+
+                                            // Hide suggestions if clicked outside
+                                            document.addEventListener("click", (e) => {
+                                                if (!addressInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                                                    clearSuggestions();
+                                                }
+                                            });
+
+                                            // Update regulation display using selectedCountry
+                                            function updateDataLawNote() {
+                                                const country = selectedCountry?.trim();
+                                                const law = regulationText[country];
+                                                const countryDisplay = document.getElementById("country-name-display");
+                                                const lawDisplay = document.getElementById("regulation-name-display");
+                                                const lawNote = document.getElementById("data-law-note");
+
+                                                if (law) {
+                                                    countryDisplay.textContent = country;
+                                                    lawDisplay.textContent = law.name;
+                                                    lawNote.innerHTML = `
+      <p><strong>${law.name}</strong></p>
+      <p>${law.description}</p>
+    `;
+                                                    lawNote.style.display = "block";
+                                                    lawNote.style.opacity = 0;
+                                                    setTimeout(() => {
+                                                        lawNote.style.opacity = 1;
+                                                    }, 50); // fade in
+                                                } else {
+                                                    countryDisplay.textContent = country || "your country";
+                                                    lawDisplay.textContent = "relevant Data Protection Law";
+                                                    lawNote.innerHTML = `<p>We are committed to adhering to the applicable data privacy laws in your country. Specific details are currently unavailable.</p>`;
+                                                }
+                                            }
+
+                                            // Regulation information for countries
+                                            const regulationText = {
+                                                Algeria: {
+                                                    name: "Law No. 18-07 of 2018",
+                                                    description: "Algeria's data protection law establishes rules for the collection, processing, and storage of personal data, ensuring individuals' privacy rights are upheld.",
+                                                },
+                                                Angola: {
+                                                    name: "Law No. 22/11 on Personal Data Protection, 2011",
+                                                    description: "This law regulates the processing of personal data in Angola, emphasizing the need for consent and outlining data subjects' rights.",
+                                                },
+                                                Benin: {
+                                                    name: "Law No. 2017-20 on the Digital Code",
+                                                    description: "Benin's Digital Code includes provisions on personal data protection, setting guidelines for data collection and processing.",
+                                                },
+                                                Botswana: {
+                                                    name: "Data Protection Act, 2018",
+                                                    description: "Botswana's Data Protection Act governs the processing of personal data, ensuring the protection of individuals' privacy rights.",
+                                                },
+                                                "Burkina Faso": {
+                                                    name: "Law No. 001-2021/AN on the Protection of Personal Data",
+                                                    description: "This law establishes a framework for personal data protection in Burkina Faso, outlining the rights of data subjects and obligations of data controllers.",
+                                                },
+                                                Burundi: {
+                                                    name: "Law No. 1/09 of May 11, 2018",
+                                                    description: "Burundi's data protection law sets principles for the lawful processing of personal data and the protection of privacy.",
+                                                },
+                                                Cameroon: {
+                                                    name: "Law No. 2010/012 on Cybersecurity and Cybercrime",
+                                                    description: "This law includes provisions on personal data protection, regulating the collection and processing of such data in Cameroon.",
+                                                },
+                                                "Cape Verde": {
+                                                    name: "Law No. 133/V/2001",
+                                                    description: "Cape Verde's data protection law outlines the principles for processing personal data and establishes a data protection authority.",
+                                                },
+                                                "Central African Republic": {
+                                                    name: "Law No. 18.003 on the Protection of Personal Data",
+                                                    description: "This law provides a legal framework for personal data protection in the Central African Republic.",
+                                                },
+                                                Chad: {
+                                                    name: "Law No. 007/PR/2015 on the Protection of Personal Data",
+                                                    description: "Chad's data protection law sets out the rights of data subjects and the obligations of data controllers and processors.",
+                                                },
+                                                Comoros: {
+                                                    name: "Law No. 18-002/AU on Personal Data Protection",
+                                                    description: "This law governs the collection, processing, and storage of personal data in Comoros, ensuring individuals' privacy rights.",
+                                                },
+                                                "Democratic Republic of the Congo": {
+                                                    name: "Law No. 18/035 on Telecommunications and Information and Communication Technologies",
+                                                    description: "This law includes provisions on personal data protection within the telecommunications sector.",
+                                                },
+                                                Djibouti: {
+                                                    name: "Law No. 78/AN/04/5ème L on the Protection of Personal Data",
+                                                    description: "Djibouti's data protection law establishes principles for the lawful processing of personal data and the protection of privacy.",
+                                                },
+                                                Egypt: {
+                                                    name: "Personal Data Protection Law No. 151 of 2020",
+                                                    description: "Egypt's law regulates the collection, processing, and storage of personal data, ensuring individuals' privacy rights and establishing a data protection authority.",
+                                                },
+                                                "Equatorial Guinea": {
+                                                    name: "Law No. 1/2016 on Data Protection",
+                                                    description: "This law provides a framework for the protection of personal data in Equatorial Guinea, outlining the rights of data subjects and obligations of data controllers.",
+                                                },
+                                                Ethiopia: {
+                                                    name: "Personal Data Protection Proclamation No. 808/2013",
+                                                    description: "Ethiopia's data protection proclamation sets out principles for the processing of personal data and the rights of data subjects.",
+                                                },
+                                                Gabon: {
+                                                    name: "Law No. 001/2011 on the Protection of Personal Data",
+                                                    description: "Gabonese law establishes a legal framework for personal data protection, including the creation of a data protection authority.",
+                                                },
+                                                Gambia: {
+                                                    name: "Data Protection and Privacy Policy, 2019",
+                                                    description: "Gambia's policy outlines principles for the protection of personal data and the privacy rights of individuals.",
+                                                },
+                                                Ghana: {
+                                                    name: "Data Protection Act, 2012 (Act 843)",
+                                                    description:
+                                                        "Ghana's Data Protection Act provides a framework for the collection, processing, and disclosure of personal data, ensuring the privacy of individuals. :contentReference[oaicite:0]{index=0}",
+                                                },
+                                                Guinea: {
+                                                    name: "Law No. L/2016/037/AN on Cybersecurity and Personal Data Protection",
+                                                    description: "This law governs the protection of personal data in Guinea, outlining the rights of data subjects and obligations of data controllers.",
+                                                },
+                                                "Guinea-Bissau": {
+                                                    name: "Law No. 5/2010 on Personal Data Protection",
+                                                    description: "Guinea-Bissau's data protection law sets out principles for the lawful processing of personal data and the protection of privacy.",
+                                                },
+                                                "Ivory Coast": {
+                                                    name: "Law No. 2013-450 on the Protection of Personal Data",
+                                                    description: "This law provides a legal framework for personal data protection in Ivory Coast, including the establishment of a data protection authority.",
+                                                },
+                                                Kenya: {
+                                                    name: "Data Protection Act, 2019",
+                                                    description:
+                                                        "Kenya's Data Protection Act provides a comprehensive framework for the processing of personal data, establishing the Office of the Data Protection Commissioner and outlining principles of data minimization, accuracy, consent, and the rights of data subjects. :contentReference[oaicite:1]{index=1}",
+                                                },
+                                                Lesotho: {
+                                                    name: "Data Protection Act, 2011",
+                                                    description: "Lesotho's Data Protection Act regulates the processing of personal data, ensuring the protection of individuals' privacy rights.",
+                                                },
+                                                Liberia: {
+                                                    name: "Data Protection and Privacy Act, 2019",
+                                                    description: "This act establishes principles for the collection, processing, and storage of personal data in Liberia, safeguarding individuals' privacy.",
+                                                },
+                                                Libya: {
+                                                    name: "Law No. 5 of 2005 on the Protection of Personal Data",
+                                                    description: "Libya's data protection law outlines the rights of data subjects and the obligations of data controllers and processors.",
+                                                },
+                                                Madagascar: {
+                                                    name: "Law No. 2014-038 on the Protection of Personal Data",
+                                                    description: "This law provides a legal framework for personal data protection in Madagascar, including the establishment of a data protection authority.",
+                                                },
+                                                Malawi: {
+                                                    name: "Data Protection Act, 2021",
+                                                    description: "Malawi's Data Protection Act governs the processing of personal data, ensuring the protection of individuals' privacy rights.",
+                                                },
+                                                Mali: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Mali currently does not have a specific data protection law in place.",
+                                                },
+                                                Mauritius: {
+                                                    name: "Data Protection Act 2017",
+                                                    description:
+                                                        "This Act aligns Mauritius's data protection framework with international standards, regulating the processing of personal data and ensuring the protection of individuals' privacy rights.",
+                                                },
+                                                Morocco: {
+                                                    name: "Law No. 09-08 on the Protection of Individuals with Regard to the Processing of Personal Data, 2009",
+                                                    description:
+                                                        "This law establishes comprehensive requirements for personal data protection, enforced by the National Commission for the Control of Personal Data Protection (CNDP). It mandates lawful processing, transparency, and data security measures.",
+                                                },
+                                                Mozambique: {
+                                                    name: "Personal Data Protection Law No. 3/2017",
+                                                    description: "This law governs the processing of personal data, ensuring individuals' rights to privacy and data protection, and sets obligations for data controllers and processors.",
+                                                },
+                                                Namibia: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Namibia currently does not have a specific data protection law in place.",
+                                                },
+                                                Niger: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Niger currently does not have a specific data protection law in place.",
+                                                },
+                                                Nigeria: {
+                                                    name: "Nigeria Data Protection Act 2023",
+                                                    description:
+                                                        "This Act establishes the Nigeria Data Protection Commission (NDPC) to oversee data protection and privacy matters, ensuring the lawful processing of personal data and safeguarding individuals' privacy rights.",
+                                                },
+                                                Rwanda: {
+                                                    name: "Law No. 058/2021 Relating to the Protection of Personal Data and Privacy",
+                                                    description:
+                                                        "Enacted in 2021, this law provides a comprehensive framework for personal data protection, outlining principles for data processing and establishing rights for data subjects.",
+                                                },
+                                                São_Tomé_and_Príncipe: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "São Tomé and Príncipe currently does not have a specific data protection law in place.",
+                                                },
+                                                Senegal: {
+                                                    name: "Law No. 2008-12 on the Protection of Personal Data",
+                                                    description: "This law regulates the collection and processing of personal data, ensuring the protection of individuals' privacy rights and establishing a data protection authority.",
+                                                },
+                                                Seychelles: {
+                                                    name: "Data Protection Act 2023",
+                                                    description:
+                                                        "Enacted in December 2023, this Act aligns with global best practices, providing a framework for the responsible handling of personal data and enhancing transparency and accountability.",
+                                                },
+                                                "Sierra Leone": {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Sierra Leone currently does not have a specific data protection law in place.",
+                                                },
+                                                "South Africa": {
+                                                    name: "Protection of Personal Information Act (POPIA) 2013",
+                                                    description:
+                                                        "POPIA governs the processing of personal information by public and private bodies, promoting transparency, accountability, and requiring organizations to obtain consent and safeguard personal data.",
+                                                },
+                                                "South Sudan": {
+                                                    name: "No specific data protection legislation",
+                                                    description: "South Sudan currently does not have a specific data protection law in place.",
+                                                },
+                                                Sudan: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Sudan currently does not have a specific data protection law in place.",
+                                                },
+                                                Eswatini: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Eswatini currently does not have a specific data protection law in place.",
+                                                },
+                                                Tanzania: {
+                                                    name: "No specific data protection legislation",
+                                                    description: "Tanzania currently does not have a specific data protection law in place.",
+                                                },
+                                                Togo: {
+                                                    name: "Law No. 2019-014 on the Protection of Personal Data",
+                                                    description: "This law establishes a legal framework for personal data protection, outlining the rights of data subjects and obligations of data controllers and processors.",
+                                                },
+                                                Tunisia: {
+                                                    name: "Organic Law No. 2004-63 on the Protection of Personal Data",
+                                                    description: "Enacted in 2004, this law regulates the processing of personal data, ensuring respect for privacy and establishing a data protection authority.",
+                                                },
+                                                Uganda: {
+                                                    name: "Data Protection and Privacy Act 2019",
+                                                    description:
+                                                        "This Act provides for the protection of personal data and privacy, regulating the collection and processing of personal information and establishing the National Personal Data Protection Office.",
+                                                },
+                                                Zambia: {
+                                                    name: "Data Protection Act 2021",
+                                                    description: "This Act provides a framework for the protection of personal data, outlining the rights of data subjects and the obligations of data controllers and processors.",
+                                                },
+                                                Zimbabwe: {
+                                                    name: "Data Protection Act 2021",
+                                                    description: "Enacted in 2021, this Act regulates the processing of personal data, establishes data protection principles, and sets up the Data Protection Authority.",
+                                                },
+                                                EU: {
+                                                    name: "General Data Protection Regulation (GDPR), 2018",
+                                                    description:
+                                                        "GDPR provides a comprehensive framework for data protection across the European Union, setting standards for the processing of personal data and the protection of individuals' privacy rights.",
+                                                },
+                                                "United States": {
+                                                    name: "California Consumer Privacy Act (CCPA), 2018",
+                                                    description:
+                                                        "The CCPA gives California residents enhanced privacy rights, including the right to access, delete, and opt-out of the sale of their personal data. Other states have their own privacy laws.",
+                                                },
+                                                "United Kingdom": {
+                                                    name: "Data Protection Act 2018",
+                                                    description: "Post-Brexit, the UK GDPR and this Act govern data protection, mirroring EU GDPR principles with domestic enforcement by the Information Commissioner's Office (ICO).",
+                                                },
+                                                Ireland: {
+                                                    name: "Data Protection Act 2018",
+                                                    description:
+                                                        "This Act implements the EU General Data Protection Regulation (GDPR) and provides for the establishment of the Data Protection Commission, outlining data protection principles and individuals' rights.",
+                                                },
+                                                Greece: {
+                                                    name: "General Data Protection Regulation (GDPR), 2018",
+                                                    description: "As part of the EU, Greece follows the GDPR, ensuring the protection of personal data and establishing privacy rights for its citizens.",
+                                                },
+                                                Canada: {
+                                                    name: "Personal Information Protection and Electronic Documents Act (PIPEDA), 2000",
+                                                    description: "PIPEDA governs the collection, use, and disclosure of personal information in the course of commercial activities, ensuring privacy protection for Canadian citizens.",
+                                                },
+                                                India: {
+                                                    name: "Personal Data Protection Bill 2019",
+                                                    description: "This Bill is in the process of being enacted, aiming to strengthen data privacy rights, establish a Data Protection Authority, and regulate the processing of personal data.",
+                                                },
+                                                Australia: {
+                                                    name: "Privacy Act 1988",
+                                                    description:
+                                                        "Australia's Privacy Act regulates the handling of personal information by federal government agencies and private sector organizations, providing individuals with rights over their data.",
+                                                },
+                                                "New Zealand": {
+                                                    name: "Privacy Act 2020",
+                                                    description: "New Zealand's Privacy Act regulates how personal data is collected, used, and protected, ensuring individuals' privacy rights and introducing new enforcement mechanisms.",
+                                                },
+                                                UAE: {
+                                                    name: "Federal Decree-Law No. 45 of 2021 on Personal Data Protection",
+                                                    description:
+                                                        "This law provides a comprehensive framework for the collection, processing, and transfer of personal data in the UAE, ensuring privacy protection in line with international standards.",
+                                                },
+                                                Saudi_Arabia: {
+                                                    name: "Personal Data Protection Law 2021",
+                                                    description: "This law provides a legal framework for data protection in Saudi Arabia, aiming to safeguard personal data and ensure compliance with international privacy standards.",
+                                                },
+                                                Israel: {
+                                                    name: "Protection of Privacy Law, 1981",
+                                                    description: "Israel's Privacy Law governs the collection and processing of personal data, aiming to protect individual privacy and ensuring data security.",
+                                                },
+                                            };
+                                        </script>
+                                    </div>
+                                </div>
+
+                                <!-- PERSONAL DETAILS -->
+                                <div class="accordion-item">
+                                    <button class="accordion-header">👤 Personal Details</button>
+                                    <div class="accordion-body">
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="title" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Title / Salutation
+                                            </label>
+                                            <select
+                                                id="title"
+                                                class="form-group"
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="" selected disabled>Select Salutation...</option>
+                                                <!-- Common Salutations -->
+                                                <option value="mr">Mr.</option>
+                                                <option value="mrs">Mrs.</option>
+                                                <option value="miss">Miss</option>
+                                                <option value="ms">Ms.</option>
+                                                <option value="dr">Dr.</option>
+                                                <option value="prof">Prof.</option>
+                                                <option value="rev">Rev.</option>
+                                                <option value="sir">Sir</option>
+                                                <option value="madam">Madam</option>
+
+                                                <!-- Ugandan Specific -->
+                                                <option value="nyabo">Nyabo</option>
+                                                <!-- Used as a respectful address for women in Uganda -->
+                                                <option value="omukama">Omukama</option>
+                                                <!-- A title for kings or royals in Uganda -->
+                                                <option value="kabaka">Kabaka</option>
+                                                <!-- Title for the King of Buganda -->
+                                                <option value="lumu">Lumu</option>
+                                                <!-- A title used for some elders or leaders in Uganda -->
+
+                                                <!-- South African Specific -->
+                                                <option value="comrade">Comrade</option>
+                                                <!-- Used for addressing fellow members in political contexts -->
+                                                <option value="uBaba">uBaba</option>
+                                                <!-- Zulu for Father, respectful term for elderly men -->
+                                                <option value="uMama">uMama</option>
+                                                <!-- Zulu for Mother, respectful term for elderly women -->
+                                                <option value="dlalamanzi">Dlalamanzi</option>
+                                                <!-- Zulu phrase meaning "play with the waters," used as a term of endearment or respect -->
+
+                                                <!-- Religious Salutations -->
+                                                <option value="pastor">Pastor</option>
+                                                <option value="imam">Imam</option>
+                                                <option value="bishop">Bishop</option>
+                                                <option value="father">Father</option>
+                                                <!-- Used in Catholic or Christian religious contexts -->
+                                                <option value="sheikh">Sheikh</option>
+                                                <!-- Muslim religious title -->
+
+                                                <!-- Other Option -->
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="first-name" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                First Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="first-name"
+                                                placeholder="e.g. Jane"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                        </div>
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="last-name" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Last Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="last-name"
+                                                placeholder="e.g. Doe"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CONTACT DETAILS -->
+                                <div class="accordion-item">
+                                    <button class="accordion-header">📞 Contact Details</button>
+                                    <div class="accordion-body">
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                            <label for="email" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Email
+                                            </label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                placeholder="e.g. you@example.com"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                        </div>
+
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                            <label for="phone" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Phone
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                id="phone"
+                                                placeholder="e.g. +1234567890"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PERSONAL INFO -->
+                                <div class="accordion-item">
+                                    <button class="accordion-header">📋 Personal Information</button>
+                                    <div class="accordion-body">
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="gender" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Gender
+                                            </label>
+                                            <select
+                                                id="gender"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="">Select</option>
+                                                <option>Female</option>
+                                                <option>Male</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="age-group" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Age Group
+                                            </label>
+                                            <select
+                                                id="age-group"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="">Select</option>
+                                                <option>10-17</option>
+                                                <option>18-24</option>
+                                                <option>25-34</option>
+                                                <option>35-44</option>
+                                                <option>45-54</option>
+                                                <option>55+</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="marital-status" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Marital Status
+                                            </label>
+                                            <select
+                                                id="marital-status"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="">Select</option>
+                                                <option>Single</option>
+                                                <option>Married</option>
+                                                <option>Divorced</option>
+                                                <option>Widowed</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="children" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Number of Children
+                                            </label>
+                                            <input
+                                                type="number"
+                                                id="children"
+                                                min="0"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                        </div>
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="nationality" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Nationality
+                                            </label>
+                                            <input
+                                                type="text"
+                                                id="nationality"
+                                                placeholder="Start typing to search..."
+                                                list="nationalities"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            />
+                                            <datalist id="nationalities">
+                                                <option value="Algeria"> </option>
+                                                <option value="Angola"> </option>
+                                                <option value="Benin"> </option>
+                                                <option value="Botswana"> </option>
+                                                <option value="Burkina Faso"> </option>
+                                                <option value="Burundi"> </option>
+                                                <option value="Cabo Verde"> </option>
+                                                <option value="Cameroon"> </option>
+                                                <option value="Central African Republic"> </option>
+                                                <option value="Chad"> </option>
+                                                <option value="Comoros"> </option>
+                                                <option value="Democratic Republic of the Congo"> </option>
+                                                <option value="Republic of the Congo"> </option>
+                                                <option value="Côte d'Ivoire"> </option>
+                                                <option value="Djibouti"> </option>
+                                                <option value="Egypt"> </option>
+                                                <option value="Equatorial Guinea"> </option>
+                                                <option value="Eritrea"> </option>
+                                                <option value="Eswatini"> </option>
+                                                <option value="Ethiopia"> </option>
+                                                <option value="Gabon"> </option>
+                                                <option value="Gambia"> </option>
+                                                <option value="Ghana"> </option>
+                                                <option value="Guinea"> </option>
+                                                <option value="Guinea-Bissau"> </option>
+                                                <option value="Kenya"> </option>
+                                                <option value="Lesotho"> </option>
+                                                <option value="Liberia"> </option>
+                                                <option value="Libya"> </option>
+                                                <option value="Madagascar"> </option>
+                                                <option value="Malawi"> </option>
+                                                <option value="Mali"> </option>
+                                                <option value="Mauritania"> </option>
+                                                <option value="Mauritius"> </option>
+                                                <option value="Morocco"> </option>
+                                                <option value="Mozambique"> </option>
+                                                <option value="Namibia"> </option>
+                                                <option value="Niger"> </option>
+                                                <option value="Nigeria"> </option>
+                                                <option value="Rwanda"> </option>
+                                                <option value="São Tomé and Príncipe"> </option>
+                                                <option value="Senegal"> </option>
+                                                <option value="Seychelles"> </option>
+                                                <option value="Sierra Leone"> </option>
+                                                <option value="Somalia"> </option>
+                                                <option value="South Africa"> </option>
+                                                <option value="South Sudan"> </option>
+                                                <option value="Sudan"> </option>
+                                                <option value="Tanzania"> </option>
+                                                <option value="Togo"> </option>
+                                                <option value="Tunisia"> </option>
+                                                <option value="Uganda"> </option>
+                                                <option value="Zambia"> </option>
+                                                <option value="Zimbabwe"> </option>
+                                            </datalist>
+                                        </div>
+
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="ethnicity" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Ethnicity
+                                            </label>
+                                            <select
+                                                id="ethnicity"
+                                                required
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="">Select</option>
+                                                <option>African</option>
+                                                <option>Caucasian</option>
+                                                <option>Asian</option>
+                                                <option>Hispanic</option>
+                                                <option>Mixed</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <!-- EMPLOYMENT STATUS -->
+                                    <button class="accordion-header">💼 Employment Status</button>
+                                    <div class="accordion-body">
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px; position: relative;">
+                                            <label for="employment" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Employment Status
+                                            </label>
+                                            <select
+                                                id="employment"
+                                                class="form-group"
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                onchange="toggleConditionalSections()"
+                                            >
+                                                <option value="" selected disabled>Select Employment Status...</option>
+                                                <!-- General Employment Statuses -->
+                                                <option value="full_time">Full-time</option>
+                                                <option value="part_time">Part-time</option>
+                                                <option value="freelance">Freelance</option>
+                                                <option value="contract">Contract</option>
+                                                <option value="intern">Intern</option>
+                                                <option value="self_employed">Self-employed</option>
+                                                <option value="unemployed">Unemployed</option>
+                                                <option value="student">Student</option>
+                                                <option value="retired">Retired</option>
+                                                <option value="volunteer">Volunteer</option>
+                                                <!-- Ugandan Specific Employment Statuses -->
+                                                <option value="civil_servant">Civil Servant</option>
+                                                <option value="farmer">Farmer</option>
+                                                <!-- South African Specific Employment Statuses -->
+                                                <option value="domestic_worker">Domestic Worker</option>
+                                                <!-- Other -->
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Conditional Sections: Student, Business, Professional -->
+
+                                        <div class="conditional-section" id="student-details" style="display: none;">
+                                            <!-- Institution / Facility Picker -->
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="institution" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Institution Name
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="institution"
+                                                    class="form-group"
+                                                    placeholder="Search for school, clinic, venue, etc."
+                                                    autocomplete="off"
+                                                    style="width: 100%; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                />
+                                                <div
+                                                    id="institution-suggestions"
+                                                    class="MS-add-suggestion-box"
+                                                    style="position: absolute; top: 100%; left: 0; right: 0; background: #fff; border: 1px solid #ccc; border-top: none; z-index: 10; display: none; max-height: 200px; overflow-y: auto;"
+                                                ></div>
+                                            </div>
+
+                                            <script>
+                                                const institutionInput = document.getElementById("institution");
+                                                const institutionSuggestions = document.getElementById("institution-suggestions");
+
+                                                let institutionDebounce;
+
+                                                function escapeHTML(str) {
+                                                    return str.replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m]));
+                                                }
+
+                                                function clearInstitutionSuggestions() {
+                                                    institutionSuggestions.innerHTML = "";
+                                                    institutionSuggestions.style.display = "none";
+                                                }
+
+                                                function showInstitutionSuggestions(results) {
+                                                    clearInstitutionSuggestions();
+
+                                                    results.forEach((item) => {
+                                                        const suggestionItem = document.createElement("div");
+                                                        suggestionItem.innerHTML = escapeHTML(item.display_name);
+                                                        suggestionItem.style.cssText = "padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; font-family: Poppins, sans-serif;";
+                                                        suggestionItem.onclick = () => {
+                                                            institutionInput.value = item.display_name;
+                                                            clearInstitutionSuggestions();
+                                                        };
+
+                                                        institutionSuggestions.appendChild(suggestionItem);
+                                                    });
+
+                                                    institutionSuggestions.style.display = "block";
+                                                }
+
+                                                institutionInput.addEventListener("input", () => {
+                                                    const query = institutionInput.value.trim();
+
+                                                    clearTimeout(institutionDebounce);
+
+                                                    if (query.length < 3) {
+                                                        clearInstitutionSuggestions();
+                                                        return;
+                                                    }
+
+                                                    institutionDebounce = setTimeout(() => {
+                                                        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1`)
+                                                            .then((res) => res.json())
+                                                            .then((data) => {
+                                                                if (Array.isArray(data) && data.length > 0) {
+                                                                    showInstitutionSuggestions(data);
+                                                                } else {
+                                                                    clearInstitutionSuggestions();
+                                                                }
+                                                            })
+                                                            .catch((err) => {
+                                                                console.error("Institution address fetch failed:", err);
+                                                                clearInstitutionSuggestions();
+                                                            });
+                                                    }, 300);
+                                                });
+
+                                                document.addEventListener("click", (e) => {
+                                                    if (!institutionInput.contains(e.target) && !institutionSuggestions.contains(e.target)) {
+                                                        clearInstitutionSuggestions();
+                                                    }
+                                                });
+                                            </script>
+                                            <!-- Grade / Class (academic + student at event) -->
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="grade" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Grade / Class
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="grade"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                    placeholder="e.g. Grade 8 or Year 2"
+                                                />
+                                            </div>
+
+                                            <!-- Attendance Mode -->
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="attendance_mode" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Attendance Mode
+                                                </label>
+                                                <select
+                                                    id="attendance_mode"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>Select Mode</option>
+                                                    <option>Full-Time</option>
+                                                    <option>Part-Time</option>
+                                                    <option>Day</option>
+                                                    <option>Remote</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Peer Support -->
+                                            <div class="form-group context-hospital context-event-student" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="peer_support" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Peer Support
+                                                </label>
+                                                <select
+                                                    id="peer_support"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>Do you feel supported?</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Sometimes</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Reason for Visit -->
+                                            <div class="form-group context-hospital context-event-student" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="visit_reason" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Reason for Visit
+                                                </label>
+                                                <select
+                                                    id="visit_reason"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>Select Reason</option>
+                                                    <option>Routine Checkup</option>
+                                                    <option>Mental Health Referral</option>
+                                                    <option>Follow-Up</option>
+                                                    <option>Emergency</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Past Visits -->
+                                            <div class="form-group context-hospital context-event-student" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="past_visits" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Previous Visits
+                                                </label>
+                                                <select
+                                                    id="past_visits"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>Have you visited before?</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Prefer Not to Say</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Safe at School or Home -->
+                                            <div class="form-group context-hospital context-event-student" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="safe_env" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Do you feel safe?
+                                                </label>
+                                                <select
+                                                    id="safe_env"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>At home or institution?</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Sometimes</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Bullying -->
+                                            <div class="form-group context-hospital context-event-student" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="bullying" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Experience of Bullying
+                                                </label>
+                                                <select
+                                                    id="bullying"
+                                                    class="form-group"
+                                                    style="flex-grow: 1; min-width: 250px; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;"
+                                                >
+                                                    <option disabled selected>Have you been bullied?</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Prefer Not to Say</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            const venueSelector = document.getElementById("assessment_location");
+                                            const participantRole = document.getElementById("employment"); // You need this dropdown too
+
+                                            function updateContextFields() {
+                                                const venue = venueSelector.value;
+                                                const role = participantRole?.value?.toLowerCase() || "";
+
+                                                const allFields = document.querySelectorAll('[class*="context-"]');
+                                                allFields.forEach((el) => (el.style.display = "none"));
+
+                                                if (venue) {
+                                                    // Show default venue fields
+                                                    document.querySelectorAll(`.context-${venue}`).forEach((el) => (el.style.display = "flex"));
+
+                                                    // If student at non-academic venue, show extended
+                                                    if (role === "student") {
+                                                        if (venue === "event" || venue === "hospital") {
+                                                            document.querySelectorAll(`.context-${venue}-student`).forEach((el) => (el.style.display = "flex"));
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            venueSelector.addEventListener("change", updateContextFields);
+                                            participantRole?.addEventListener("change", updateContextFields);
+                                        </script>
+
+                                        <div class="conditional-section" id="business-details" style="display: none;">
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="business-name" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Business Name:
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="business-name"
+                                                    placeholder="Enter business name"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="business-sector" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Business Sector:
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    id="business-sector"
+                                                    placeholder="Enter business sector"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="business-employees" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Number of Employees:
+                                                </label>
+
+                                                <input
+                                                    type="number"
+                                                    id="business-employees"
+                                                    placeholder="Enter number of employees"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="conditional-section" id="professional-details" style="display: none;">
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="professional-employer" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Employer:
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    id="professional-employer"
+                                                    placeholder="Enter employer's name"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="professional-position" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Position:
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    id="professional-position"
+                                                    placeholder="Enter your position"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                            <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                                <label for="professional-position" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                    Years of Experience:
+                                                </label>
+
+                                                <input
+                                                    type="number"
+                                                    id="professional-position"
+                                                    placeholder="Enter years of experience"
+                                                    required
+                                                    style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <!-- Add your JavaScript below -->
+
+                                        <script>
+                                            // Function to toggle the conditional sections based on the selected employment status
+                                            function toggleConditionalSections() {
+                                                const employmentStatus = document.getElementById("employment").value;
+
+                                                // Hide all sections by default
+                                                document.getElementById("student-details").style.display = "none";
+                                                document.getElementById("business-details").style.display = "none";
+                                                document.getElementById("professional-details").style.display = "none";
+
+                                                // Show the appropriate section based on the selected employment status
+                                                if (employmentStatus === "student") {
+                                                    document.getElementById("student-details").style.display = "block";
+                                                } else if (employmentStatus === "self_employed" || employmentStatus === "freelance") {
+                                                    document.getElementById("business-details").style.display = "block"; // Assume business details for self-employed/freelance
+                                                } else if (employmentStatus === "full_time" || employmentStatus === "part_time" || employmentStatus === "contract" || employmentStatus === "intern") {
+                                                    document.getElementById("professional-details").style.display = "block";
+                                                }
+                                            }
+
+                                            // Function to toggle the accordion body visibility
+                                            function toggleAccordion(sectionId) {
+                                                const sectionBody = document.querySelector(`#${sectionId} .accordion-body`);
+                                                if (sectionBody.style.display === "none" || sectionBody.style.display === "") {
+                                                    sectionBody.style.display = "block";
+                                                } else {
+                                                    sectionBody.style.display = "none";
+                                                }
+                                            }
+                                        </script>
+                                        <div class="form-group" style="display: grid; grid-template-columns: auto 1fr; align-items: center; margin-bottom: 5px;">
+                                            <label for="education" class="MS-add-form-label" style="background-color: var(--primary); padding: 0.5rem; border-radius: 5px; color: #fff; margin-right: 10px;">
+                                                Education Level
+                                            </label>
+                                            <select
+                                                id="education"
+                                                class="form-group"
+                                                style="flex-grow: 1; font-family: 'Poppins', sans-serif; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);"
+                                            >
+                                                <option value="" selected disabled>Select Education Level...</option>
+                                                <option value="none">No Formal Education</option>
+                                                <option value="primary">Primary Education</option>
+                                                <option value="secondary">Secondary Education / High School</option>
+                                                <option value="vocational">Vocational / Technical Training</option>
+                                                <option value="diploma">Diploma</option>
+                                                <option value="bachelors">Bachelor's Degree</option>
+                                                <option value="postgraduate">Postgraduate Diploma</option>
+                                                <option value="masters">Master's Degree</option>
+                                                <option value="doctorate">Doctorate (PhD)</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- RIGHT SECTION -->
+
+                        <section class="right registration-panel">
+                            <h3 class="panel-title">Your Consent</h3>
+
+                            <div class="mini-card">
+                                <div class="accordion">
+                                    <!-- CONSENT STATUS -->
+                                    <div class="accordion-item">
+                                        <!-- Font Awesome for optional icons -->
+                                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+                                        <!-- Consent Accordion Header -->
+                                        <button id="consent-header" class="accordion-header" type="button" onclick="toggleConsent()">
+                                            <i class="fas fa-user-check consent-icon"></i>
+                                            <span class="accordion-label">Data Collection Consent | Data Processing Consent</span>
+                                        </button>
+
+                                        <style>
+                                            .accordion-header {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                width: 100%;
+                                                padding: 14px 16px;
+                                                background: var(--accent, #a3e4d7);
+                                                color: var(--text-color, #145a32);
+                                                font-family: "Poppins", sans-serif;
+                                                font-weight: 600;
+                                                font-size: 1rem;
+                                                text-align: center;
+                                                border: none;
+                                                border-radius: 10px;
+                                                cursor: pointer;
+                                                transition: background-color 0.3s ease, transform 0.2s ease;
+                                                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+                                            }
+
+                                            .accordion-header:hover {
+                                                background-color: var(--hover-bg, #b9f6e3);
+                                                transform: translateY(-1px);
+                                            }
+
+                                            .accordion-header:active {
+                                                transform: translateY(0);
+                                            }
+
+                                            .consent-icon {
+                                                margin-right: 0.5rem;
+                                                font-size: 1.2rem;
+                                                color: var(--primary-dark, #1e8e4e);
+                                            }
+
+                                            .accordion-label {
+                                                display: inline-block;
+                                                vertical-align: middle;
+                                            }
+                                        </style>
+                                    </div>
+
+                                    <!div class="accordion-body" id="consent-body" style="display: none; padding: 20px; background-color: #ffe8d6; border: 1px solid #f5c1a5; border-radius: 8px; margin-top: 10px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);">
+
+                                    <div
+                                        class="accordion-body"
+                                        id="consent-body"
+                                        style="
+                                            display: none;
+                                            padding: 1.5rem;
+                                            background-color: var(--bg); /* Use background color from the theme */
+                                            border: 1px solid var(--accent-1); /* Use accent color for the border */
+                                            border-radius: 12px;
+                                            margin-top: 1rem;
+                                            color: var(--text-color); /* Use the text color from the theme */
+                                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                        "
+                                    >
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                            <label
+                                                for="consent-chkbx"
+                                                class="MS-add-form-label"
+                                                style="
+                                                    background-color: var(--primary);
+                                                    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+                                                    border-radius: 5px;
+                                                    color: #fff;
+                                                    margin-right: 10px;
+                                                    white-space: wrap;
+                                                    text-overflow: ellipsis;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                Informed Consent Declaration
+                                            </label>
+
+                                            <!-- Consent Statement -->
+                                            <label id="consent-chkbx" style="display: block; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">
+                                                <!-- Consent Checkbox -->
+                                                <input type="checkbox" id="consentCheckbox" onchange="toggleConsent()" required style="margin-right: 8px;" />
+                                                I confirm that I have been informed that my personal data will be collected and processed in full compliance with the data protection laws of
+                                                <strong id="country-name-display">[Your Country]</strong>, specifically the <strong id="regulation-name-display">[Law Name]</strong>.
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                            <label
+                                                for="data-law-note"
+                                                class="MS-add-form-label"
+                                                style="
+                                                    background-color: var(--primary);
+                                                    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+                                                    border-radius: 5px;
+                                                    color: #fff;
+                                                    margin-right: 10px;
+                                                    white-space: wrap;
+                                                    text-overflow: ellipsis;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                Applicable Data Protection Regulation
+                                            </label>
+
+                                            <!-- Regulation Description -->
+                                            <div id="data-law-note" style="padding: 12px 14px; background-color: #fffaf5; border: 1px solid #e3e3e3; border-radius: 6px; font-size: 0.9rem; color: #5a5a5a;">
+                                                <!-- Dynamic regulation details appear here -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+localStorage.clear();
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            const consentCheckbox = document.getElementById("consent-chkbx");
+                                            const consentBtn = document.getElementById("chk-header");
+
+                                            // ✅ Form validation logic
+                                            function validateFormFields() {
+                                                const fields = {
+                                                    locationtype: document.getElementById("assessment_location"),
+                                                    theaddress: document.getElementById("MS-add_address"),
+                                                    title: document.getElementById("title"),
+                                                    firstName: document.getElementById("first-name"),
+                                                    lastName: document.getElementById("last-name"),
+                                                    email: document.getElementById("email"),
+                                                    phone: document.getElementById("phone"),
+                                                    ageGroup: document.getElementById("age-group"),
+                                                    employment: document.getElementById("employment"),
+                                                    education: document.getElementById("education"),
+                                                    gender: document.getElementById("gender"),
+                                                };
+
+                                                let isValid = true;
+                                                let errorMessage = "";
+
+                                                for (let key in fields) {
+                                                    const field = fields[key];
+                                                    if (!field || !field.value.trim()) {
+                                                        isValid = false;
+                                                        errorMessage += `• ${field.name || key.replace(/([A-Z])/g, " $1")}\n`;
+                                                    }
+                                                }
+
+                                                return { isValid, errorMessage };
+                                            }
+
+                                            // ✅ Respond to checkbox change AFTER the change happens
+                                            consentCheckbox.addEventListener("change", () => {
+                                                const { isValid, errorMessage } = validateFormFields();
+
+                                                console.log("Checkbox was toggled. Is valid:", isValid);
+                                                if (!isValid) {
+                                                    alert("Please complete the following fields before giving consent:\n\n" + errorMessage);
+                                                    consentCheckbox.checked = false; // Immediately revert checkbox
+                                                    consentBtn.disabled = true;
+                                                } else {
+                                                    consentBtn.disabled = false;
+                                                    console.log("Consent allowed. Button enabled:", !consentBtn.disabled);
+                                                }
+                                            });
+
+                                            // ✅ Auto-disable consent button on any form change
+                                            const fieldIds = ["assessment_location", "MS-add_address", "title", "first-name", "last-name", "email", "phone", "age-group", "employment", "education", "gender"];
+
+                                            fieldIds.forEach((id) => {
+                                                const field = document.getElementById(id);
+                                                if (field) {
+                                                    field.addEventListener("input", () => {
+                                                        const { isValid } = validateFormFields();
+                                                        if (!isValid) {
+                                                            consentCheckbox.checked = false;
+                                                            consentBtn.disabled = true;
+                                                            console.log("Form became invalid. Consent reset.");
+                                                        }
+                                                    });
+                                                }
+                                            });
+
+
+                                            // ✅ Final check on consent button click
+                                            consentBtn.addEventListener("click", (e) => {
+                                                e.preventDefault();
+                                                const { isValid, errorMessage } = validateFormFields();
+
+                                                if (!isValid) {
+                                                    alert("Please complete all required fields:\n\n" + errorMessage);
+                                                    consentCheckbox.checked = false;
+                                                    consentBtn.disabled = true;
+                                                    return;
+                                                }
+
+                                                // Wait for checkbox to fully update before checking
+                                                setTimeout(() => {
+                                                    if (!consentCheckbox.checked) {
+                                                        consentBtn.disabled = false;
+                                                        consentCheckbox.checked = true;
+                                                    }
+                                                    
+                                                }, 50);
+                                            });
+                                        });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const firstNameInput = document.getElementById("first-name");
+
+    if (firstNameInput) {
+        // Update localStorage on blur (when user leaves the input)
+        firstNameInput.addEventListener("blur", () => {
+            const firstNames = firstNameInput.value.trim();
+            if (firstNames) {
+                localStorage.setItem("firstNames", firstNames);
+            }
+        });
+
+        // Optional: Update localStorage on typing (live as they type)
+        firstNameInput.addEventListener("input", () => {
+            const firstNames = firstNameInput.value.trim();
+            if (firstNames) {
+                localStorage.setItem("firstNames", firstNames);
+            }
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const inputs = document.querySelectorAll("input, textarea, select");
+
+    inputs.forEach((input) => {
+        const key = `form_${input.id || input.name}`;
+
+        // Restore previous value from localStorage (optional)
+        const savedValue = localStorage.getItem(key);
+        if (savedValue !== null) {
+            input.value = savedValue;
+        }
+
+        // Save value to localStorage when input changes
+        input.addEventListener("input", () => {
+            localStorage.setItem(key, input.value.trim());
+        });
+
+        // Optionally update on blur too
+        input.addEventListener("blur", () => {
+            localStorage.setItem(key, input.value.trim());
+        });
+    });
+});
+
+
+                                    </script>
+
+                                    <script>
+                                        // Toggle accordion with highlight
+                                        function toggleConsent() {
+                                            const consentBody = document.getElementById("consent-body");
+                                            const consentHeader = document.querySelector(".accordion-header");
+                                            const consentButton = document.getElementById("consent-header");
+                                            const consentCheckbox = document.getElementById("consentCheckbox");
+
+                                            if (consentCheckbox.checked) {
+                                                consentButton.style.background = "#28a745"; // Traffic light green when consent is given
+                                                consentButton.style.color = "#fff"; // White text
+                                            } else {
+                                                consentButton.style.background = "#a3e4d7"; // Blended mint green background
+                                                consentButton.style.color = "#145a32"; // Dark mint color for text
+                                            }
+
+                                            const isOpen = consentBody.style.display === "block";
+                                            consentBody.style.display = isOpen ? "none" : "block";
+
+                                            consentHeader.classList.toggle("active", !isOpen);
+
+                                            // Update law block when opened
+                                            if (!isOpen && selectedCountry) updateDataLawNote();
+                                        }
+
+                                        // Auto-update on load if country is selected
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            if (selectedCountry) {
+                                                updateDataLawNote();
+                                            }
+                                        });
+                                    </script>
+                                    <style>
+                                        #data-law-note {
+                                            padding: 12px;
+                                            background-color: #fff;
+                                            border-left: 4px solid #4da6ff;
+                                            border-radius: 6px;
+                                            margin-top: 8px;
+                                            font-family: "Poppins", sans-serif;
+                                            font-size: 0.95rem;
+                                            line-height: 1.5;
+                                            color: #333;
+                                            transition: opacity 0.3s ease;
+                                        }
+
+                                        /* Consent Statement Label Styling */
+                                        #consent-body label {
+                                            display: flex;
+                                            align-items: flex-start;
+                                            gap: 10px;
+                                            background-color: #fefefe;
+                                            padding: 12px 14px;
+                                            border: 1px solid #ddd;
+                                            border-radius: 6px;
+                                            font-size: 0.95rem;
+                                            line-height: 1.6;
+                                            color: #333;
+                                            margin-bottom: 12px;
+                                            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+                                        }
+
+                                        #consent-body label input[type="checkbox"] {
+                                            margin-top: 3px;
+                                            transform: scale(1.2);
+                                            accent-color: #4da6ff;
+                                            cursor: pointer;
+                                        }
+
+                                        #consent-body label strong {
+                                            color: #2a2a2a;
+                                            font-weight: 600;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+
+                            <!-- Font Awesome -->
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+                            <!-- Serene Lavender Consent Button -->
+                            <button disabled id="chk-header" class="chk-accordion serene-theme" type="button">
+                                <div class="chk-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="chk-content">
+                                    <h3 class="chk-title">Step 2: Personal Checkpoint</h3>
+                                    <p class="chk-description"></p>
+                                    <span class="consent-label">Start your T|Check Checkpoints</span>
+                                </div>
+                            </button>
+
+                            <style>
+                                .chk-accordion.serene-theme {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    width: 100%;
+                                    text-align: center;
+                                    background: var(--secondary-light, #dcd6f7);
+                                    border: none;
+                                    border-radius: 14px;
+                                    padding: 1.5rem 1rem;
+                                    cursor: pointer;
+                                    margin-top: 10px;
+                                    transition: background-color 0.3s ease, opacity 0.3s ease;
+                                    box-shadow: 0 8px 16px rgba(155, 89, 182, 0.15);
+                                    font-family: "Poppins", sans-serif;
+                                }
+
+                                .chk-accordion.serene-theme:hover:not(:disabled) {
+                                    background-color: var(--accent-1, #e8daf6);
+                                }
+
+                                .chk-accordion:disabled {
+                                    opacity: 0.5;
+                                    cursor: not-allowed;
+                                    pointer-events: none;
+                                }
+
+                                .chk-icon {
+                                    font-size: 2.2rem;
+                                    color: var(--primary-dark, #7a478d);
+                                    margin-bottom: 0.75rem;
+                                }
+
+                                .chk-title {
+                                    font-size: 1.3rem;
+                                    font-weight: 600;
+                                    margin: 0.25rem 0;
+                                    color: var(--text-color, #311d53);
+                                }
+
+                                .chk-description {
+                                    font-size: 0.95rem;
+                                    color: #5d3d73;
+                                    margin: 0.25rem 0 0.5rem;
+                                }
+
+                                .consent-label {
+                                    font-size: 0.85rem;
+                                    font-weight: 500;
+                                    background: var(--primary, #9b59b6);
+                                    color: #fff;
+                                    padding: 0.4rem 0.8rem;
+                                    border-radius: 6px;
+                                    display: inline-block;
+                                    margin-top: 0.3rem;
+                                }
+                            </style>
+                        </section>
+                    </div>
+                </section>
+            </div>
+            <script>
+                const accordions = document.querySelectorAll(".accordion-header");
+                accordions.forEach((header) => {
+                    header.addEventListener("click", () => {
+                        const item = header.parentElement;
+                        item.classList.toggle("active");
+                    });
+                });
+            </script>
+        </div>
+
+        <!-- STYLES -->
+        <style>
+            .hero-description {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fff;
+                background-color: var(--primary-dark, #5a0c0c);
+                padding: 1.2rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+                max-width: 100vw;
+                margin: 2rem auto;
+                text-align: center;
+                line-height: 1.6;
+                letter-spacing: 0.4px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+        </style>
+
+        <!-- SCRIPT -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btn = document.getElementById("chk-header");
+
+                btn.addEventListener("click", () => {
+                    window.location.href = "assessmentintroa.html";
+                });
+            });
+        </script>
+
+        <script>
+            const themes = {
+                default: {
+        "--primary": "#003366",
+        "--primary-light": "#00509e",
+        "--primary-dark": "#001f4d",
+        "--secondary": "#5ac8fa",
+        "--secondary-light": "#a3e4f7",
+        "--secondary-dark": "#0077b6",
+        "--bg": "#f4f6f8",
+        "--card-bg": "#ffffff",
+        "--text-color": "#ffffff",
+        "--accent-1": "#00bfff",
+        "--accent-2": "#e0f7fa",
+        "--accent-3": "#dde2e8",
+        "--hover-bg": "#001f4d",
+        "--hover-text": "#ffffff",
+        "--section-bg": "#ffffff",
+        "--section-border": "#ccc",
+        "--mini-card-bg": "#e6f0fa",
+        "--mini-card-border": "#b0c4de",
+        "--mini-card-hover": "#cce6ff",
+        "--button-bg": "#003366",
+        "--button-hover-bg": "#00509e"
+                },
+
+                fieryRed: {
+                    "--primary": "#930d0e",
+                    "--primary-light": "#c22c2c",
+                    "--primary-dark": "#7b0a0b",
+                    "--secondary": "#2a7a4e",
+                    "--secondary-light": "#66b59b",
+                    "--secondary-dark": "#1e5c3f",
+                    "--bg": "#f5fdf7",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#333",
+                    "--accent-1": "#f9d5d4",
+                    "--accent-2": "#e4b0b1",
+                    "--accent-3": "#f1c0c1",
+                    "--hover-bg": "#d46a6a",
+                    "--button-bg": "#930d0e",
+                    "--button-hover-bg": "#b35c5c",
+                },
+                blushRose: {
+                    "--primary": "#e84393",
+                    "--primary-light": "#f56eb5",
+                    "--primary-dark": "#b93372",
+                    "--secondary": "#fab1a0",
+                    "--secondary-light": "#ffcfb8",
+                    "--secondary-dark": "#f28f75",
+                    "--bg": "#fceff9",
+                    "--card-bg": "#fff",
+                    "--text-color": "#6c2c5b",
+                    "--accent-1": "#ffe2e6",
+                    "--accent-2": "#ffccd7",
+                    "--accent-3": "#ffd0d8",
+                    "--hover-bg": "#f3a8b7",
+                    "--button-bg": "#e84393",
+                    "--button-hover-bg": "#ec5987",
+                },
+                midnightDark: {
+                    "--primary": "#ff5252",
+                    "--primary-light": "#ff7f7f",
+                    "--primary-dark": "#e10000",
+                    "--secondary": "#00c896",
+                    "--secondary-light": "#33e0b3",
+                    "--secondary-dark": "#009c75",
+                    "--bg": "#1a1a1a",
+                    "--card-bg": "#2a2a2a",
+                    "--text-color": "#eee",
+                    "--accent-1": "#ff2d2d",
+                    "--accent-2": "#ff4444",
+                    "--accent-3": "#ff6b6b",
+                    "--hover-bg": "#ff4d4d",
+                    "--button-bg": "#ff5252",
+                    "--button-hover-bg": "#ff4d4d",
+                },
+                sereneLavender: {
+                    "--primary": "#9b59b6",
+                    "--primary-light": "#ab70c6",
+                    "--primary-dark": "#7a478d",
+                    "--secondary": "#dcd6f7",
+                    "--secondary-light": "#f1f0fe",
+                    "--secondary-dark": "#a5a1d8",
+                    "--bg": "#f6f0ff",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#4a347f",
+                    "--hover-bg": "#ece3ff",
+                    "--section-bg": "#f5f0ff",
+                    "--section-border": "#d0a3db",
+                    "--mini-card-bg": "#f3e6f9",
+                    "--mini-card-border": "#d4aee0",
+                    "--mini-card-hover": "#d8b7e4",
+                    "--button-bg": "#9b59b6",
+                    "--button-hover-bg": "#7a478d",
+                },
+                oceanBreeze: {
+                    "--primary": "#0077b6",
+                    "--primary-light": "#66a6c9",
+                    "--primary-dark": "#004f74",
+                    "--secondary": "#90e0ef",
+                    "--secondary-light": "#b8efff",
+                    "--secondary-dark": "#60b6c8",
+                    "--bg": "#e0f7fa",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#003b5c",
+                    "--hover-bg": "#caf0f8",
+                    "--section-bg": "#d4eaff",
+                    "--section-border": "#5bb8d1",
+                    "--mini-card-bg": "#b3e2f2",
+                    "--mini-card-border": "#7fb7cf",
+                    "--mini-card-hover": "#a1d2e6",
+                    "--button-bg": "#0077b6",
+                    "--button-hover-bg": "#005f86",
+                },
+                goldenSunset: {
+                    "--primary": "#ff6b6b",
+                    "--primary-light": "#ff9999",
+                    "--primary-dark": "#d94d4d",
+                    "--secondary": "#ffa502",
+                    "--secondary-light": "#ffbf6e",
+                    "--secondary-dark": "#d57f00",
+                    "--bg": "#fffaf0",
+                    "--card-bg": "#fff6f0",
+                    "--text-color": "#4e342e",
+                    "--hover-bg": "#ffe9d6",
+                    "--section-bg": "#fff3e6",
+                    "--section-border": "#ffcc99",
+                    "--mini-card-bg": "#f9e6e1",
+                    "--mini-card-border": "#f5c5b0",
+                    "--mini-card-hover": "#f8d1b6",
+                    "--button-bg": "#ff6b6b",
+                    "--button-hover-bg": "#ff4444",
+                },
+                softStone: {
+                    "--primary": "#7f8c8d",
+                    "--primary-light": "#a4b0b1",
+                    "--primary-dark": "#5f6a6a",
+                    "--secondary": "#bdc3c7",
+                    "--secondary-light": "#d0d6d7",
+                    "--secondary-dark": "#98a1a2",
+                    "--bg": "#f2f4f4",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#2c3e50",
+                    "--hover-bg": "#e5e8e8",
+                    "--section-bg": "#d9e0e3",
+                    "--section-border": "#b7c1c4",
+                    "--mini-card-bg": "#d9e0e3",
+                    "--mini-card-border": "#c1c8c9",
+                    "--mini-card-hover": "#c8d1d2",
+                    "--button-bg": "#7f8c8d",
+                    "--button-hover-bg": "#5e6b6c",
+                },
+                softBlush: {
+                    "--primary": "#ff9aa2",
+                    "--primary-light": "#ffb6c1",
+                    "--primary-dark": "#e27a82",
+                    "--secondary": "#ffd3b6",
+                    "--secondary-light": "#fff2d9",
+                    "--secondary-dark": "#f8c19f",
+                    "--bg": "#fff5f8",
+                    "--card-bg": "#ffffff",
+                    "--text-color": "#b33951",
+                    "--hover-bg": "#ffe9ef",
+                    "--section-bg": "#ffe3ea",
+                    "--section-border": "#fbc9d0",
+                    "--mini-card-bg": "#ffe8ec",
+                    "--mini-card-border": "#f5ccd3",
+                    "--mini-card-hover": "#ffdce3",
+                    "--button-bg": "#ff9aa2",
+                    "--button-hover-bg": "#e27a82",
+                },
+            };
+
+            // Initialize and apply theme as early as possible
+            let currentTheme = localStorage.getItem("theme") || "default";
+            applyTheme(currentTheme);
+
+            // Theme selection dropdown
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeSelect = document.getElementById("themeSelect");
+                if (themeSelect) {
+                    themeSelect.value = currentTheme;
+                    themeSelect.addEventListener("change", (e) => {
+                        applyTheme(e.target.value);
+                    });
+                }
+
+            });
+
+            // Apply the selected theme
+            function applyTheme(themeName) {
+                const theme = themes[themeName];
+                if (!theme) return;
+
+                // Apply CSS variables
+                Object.entries(theme).forEach(([key, value]) => {
+                    document.documentElement.style.setProperty(key, value);
+                });
+
+                // Adjust text color for readability
+                setHeroDescriptionTextColor();
+
+                // Persist and sync
+                localStorage.setItem("theme", themeName);
+                currentTheme = themeName;
+            }
+
+
+            // Adjust text color based on theme background
+            function setHeroDescriptionTextColor() {
+                const bg = getComputedCSSVar("--primary-dark");
+                if (!bg || !bg.startsWith("#")) return;
+                const luminance = getLuminance(bg);
+                const color = luminance > 0.5 ? "#111" : "#fff";
+                const heroDesc = document.querySelector(".hero-description");
+                if (heroDesc) heroDesc.style.color = color;
+            }
+
+            // Get CSS variable value
+            function getComputedCSSVar(variable) {
+                return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+            }
+
+            // Calculate luminance for color contrast
+            function getLuminance(hex) {
+                const rgb = hex
+                    .replace("#", "")
+                    .match(/.{2}/g)
+                    .map((x) => parseInt(x, 16) / 255);
+                const lum = rgb.map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+                return 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
+            }
+
+            // Listen for theme sync messages
+            window.addEventListener("message", (event) => {
+                if (event.data?.theme && themes[event.data.theme]) {
+                    applyTheme(event.data.theme);
+                    const themeSelect = document.getElementById("themeSelect");
+                    if (themeSelect) themeSelect.value = event.data.theme;
+                }
+            });
+        </script>
+        <script>
+            // Re-enable transitions after everything has loaded
+            window.addEventListener("load", () => {
+                // Clear any transition-blocking styles from <html> or <body>
+                document.documentElement.style.transition = "";
+                document.body.style.transition = "";
+
+                // Remove inline 'transition: none' from all elements (for smooth future interactions)
+                document.querySelectorAll("*").forEach((el) => el.style.removeProperty("transition"));
+
+                // Reveal the page if it was hidden to prevent flicker
+                document.body.style.visibility = "visible";
+            });
+        </script>
+    </body>
+</html>

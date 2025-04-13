@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMR | T-CHECK</title>
+  <style>
+    :root {
+        --primary": #003366,
+        --primary-light": #00509e,
+        --primary-dark": #001f4d,
+        --secondary": #5ac8fa,
+        --secondary-light": #a3e4f7,
+        --secondary-dark": #0077b6,
+        --bg": #f4f6f8,
+        --card-bg": #ffffff,
+        --text-color": #ffffff,
+        --accent-1": #00bfff,
+        --accent-2": #e0f7fa,
+        --accent-3": #dde2e8,
+        --hover-bg": #001f4d,
+        --hover-text": #ffffff,
+        --section-bg": #ffffff,
+        --section-border": #ccc,
+        --mini-card-bg": #e6f0fa,
+        --mini-card-border": #b0c4de,
+        --mini-card-hover": #cce6ff,
+        --button-bg": #003366,
+        --button-hover-bg": #00509e
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--primary);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+    }
+
+    header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .logo {
+      width: 400px;
+      max-width: 80vw;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      color: #e0e0e0;
+    }
+
+    .falling-letter {
+      position: absolute;
+      font-size: 2rem;
+      color: var(--text-color);
+      animation: fall linear infinite;
+      opacity: 0.05;
+      user-select: none;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.05;
+      }
+    }
+
+    #themeSelect {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 20;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <select id="themeSelect">
+    <option value="default">Default</option>
+    <option value="tmr">TMR Theme</option>
+  </select>
+
+  <header>
+    <img src="logo.png" alt="TMR Logo" class="logo" onclick="window.location.href='intro.html'" />
+    <h1>TMR | T-CHECK</h1>
+    <p class="tagline">Smart Wellness Monitoring for a Smarter Institution</p>
+  </header>
+
+  <script>
+    const letters = ['T', 'M', 'R', 'T', '-', 'C', 'H', 'E', 'C', 'K'];
+    const createLetter = () => {
+      const letter = document.createElement('div');
+      letter.classList.add('falling-letter');
+      letter.textContent = letters[Math.floor(Math.random() * letters.length)];
+      letter.style.left = Math.random() * 100 + 'vw';
+      letter.style.animationDuration = 5 + Math.random() * 5 + 's';
+      letter.style.fontSize = 1 + Math.random() * 3 + 'rem';
+      document.body.appendChild(letter);
+      setTimeout(() => {
+        document.body.removeChild(letter);
+      }, 10000);
+    };
+    setInterval(createLetter, 200);
+
+    const themes = {
+      default: {
+        "--primary": "#003366",
+        "--primary-light": "#00509e",
+        "--primary-dark": "#001f4d",
+        "--secondary": "#5ac8fa",
+        "--secondary-light": "#a3e4f7",
+        "--secondary-dark": "#0077b6",
+        "--bg": "#f4f6f8",
+        "--card-bg": "#ffffff",
+        "--text-color": "#ffffff",
+        "--accent-1": "#00bfff",
+        "--accent-2": "#e0f7fa",
+        "--accent-3": "#dde2e8",
+        "--hover-bg": "#001f4d",
+        "--hover-text": "#ffffff",
+        "--section-bg": "#ffffff",
+        "--section-border": "#ccc",
+        "--mini-card-bg": "#e6f0fa",
+        "--mini-card-border": "#b0c4de",
+        "--mini-card-hover": "#cce6ff",
+        "--button-bg": "#003366",
+        "--button-hover-bg": "#00509e"
+      },
+      tmr: {
+        "--primary": "#003366",
+        "--primary-light": "#00509e",
+        "--primary-dark": "#001f4d",
+        "--secondary": "#5ac8fa",
+        "--secondary-light": "#a3e4f7",
+        "--secondary-dark": "#0077b6",
+        "--bg": "#f4f6f8",
+        "--card-bg": "#ffffff",
+        "--text-color": "#ffffff",
+        "--accent-1": "#00bfff",
+        "--accent-2": "#e0f7fa",
+        "--accent-3": "#dde2e8",
+        "--hover-bg": "#001f4d",
+        "--hover-text": "#ffffff",
+        "--section-bg": "#ffffff",
+        "--section-border": "#ccc",
+        "--mini-card-bg": "#e6f0fa",
+        "--mini-card-border": "#b0c4de",
+        "--mini-card-hover": "#cce6ff",
+        "--button-bg": "#003366",
+        "--button-hover-bg": "#00509e"
+      }
+    };
+
+    const applyTheme = (themeName) => {
+      const theme = themes[themeName];
+      for (const key in theme) {
+        document.documentElement.style.setProperty(key, theme[key]);
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeSelect = document.getElementById("themeSelect");
+      if (themeSelect) {
+        applyTheme(themeSelect.value);
+        themeSelect.addEventListener("change", (e) => {
+          applyTheme(e.target.value);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
